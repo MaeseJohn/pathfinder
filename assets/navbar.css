@@ -1,12 +1,12 @@
 *{
     margin: 0;
     padding: 0;
-    color: white;
+    color: wheat;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background: #f2f2f2;
+    background:wheat;
 }
 nav{
     background: #1b1b1b;
@@ -18,7 +18,7 @@ display: table;
 }
 nav .logo{
     float: left;
-    color: white;
+    color: wheat;
     font-size: 30px;
     font-weight: 600;
     line-height: 70px;
@@ -66,7 +66,7 @@ nav ul ul{
     border-top: 3px solid cyan;
     opacity: 0;
     visibility: hidden;
-    transition: top .5s;
+    transition: top .3s;
 }
 nav ul li:hover > ul{
     top: 70px;
