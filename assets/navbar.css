@@ -30,6 +30,14 @@ nav ul{
     margin-right: 50px;
     position: relative;
 }
+nav ul .run{
+    background-color: rgba(0, 165, 0, 0.76);
+    border-radius: 15px;;
+}
+nav ul .clear{
+    background-color: rgba(219, 12, 12, 0.76);
+    border-radius: 15px;;
+}
 nav ul li{
     float: left;
     background: #1b1b1b;
