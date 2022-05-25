@@ -18,7 +18,7 @@ display: table;
 }
 nav .logo{
     float: left;
-    color: wheat;
+    color: white;
     font-size: 30px;
     font-weight: 600;
     line-height: 70px;
@@ -31,11 +31,11 @@ nav ul{
     position: relative;
 }
 nav ul .run{
-    background-color: rgba(0, 165, 0, 0.76);
+    background-color: rgba(106, 238, 106, 0.76);
     border-radius: 15px;;
 }
 nav ul .clear{
-    background-color: rgba(219, 12, 12, 0.76);
+    background-color: rgba(212, 36, 36, 0.76);
     border-radius: 15px;;
 }
 nav ul li{
