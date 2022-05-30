@@ -11,3 +11,8 @@
 #lastcell{
     background-color: #1b1b1b;
 }
+
+#grid{
+    margin-left: auto;
+    margin-right: auto;
+}
