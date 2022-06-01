@@ -11,7 +11,7 @@ body{
 nav{
     background: #1b1b1b;
 }
-input{
+ul li input{
     color: white;
     text-decoration: none;
     font-size: 18px;
@@ -19,9 +19,9 @@ input{
     width: 10%;
 }
 nav:after{
-content: '';
-clear: both;
-display: table;
+    content: '';
+    clear: both;
+    display: table;
 }
 nav .logo{
     float: left;
@@ -36,13 +36,22 @@ nav ul{
     list-style: none;
     position:relative;
 }
+nav ul li .create{
+    background-color: rgba(29, 177, 169, 0.966);
+    border-radius: 13px;
+}
 nav ul .run{
-    background-color: rgba(106, 238, 106, 0.76);
-    border-radius: 15px;;
+    background-color: rgba(106, 238, 106, 0.5);
+    border-radius: 15px;
 }
 nav ul .clear{
     background-color: rgba(212, 36, 36, 0.76);
-    border-radius: 15px;;
+    border-radius: 15px;
+}
+nav ul .button:hover{
+    border-radius: 15px;
+    box-shadow: 0 0 10px white,
+    0 0 10px white;
 }
 nav ul li{
     float: left;
@@ -56,37 +65,10 @@ nav ul li a{
     font-size: 18px;
     padding: 8px 15px; 
 }
-nav ul li a:hover{
-    color: cyan;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #33ffff,
-                0 0 5px #66ffff;
+nav ul li select{
+    color: white;
+    background-color: #1b1b1b;
+    line-height: 70px;
+    font-size: 18px;
 }
-nav ul ul li a:hover{
-  color: cyan;
-  box-shadow: none;  
-}
-nav ul ul{
-    position: absolute;
-    top: 90px;
-    border-top: 3px solid cyan;
-    opacity: 0;
-    visibility: hidden;
-    transition: top .3s;
-}
-nav ul li:hover > ul{
-    top: 70px;
-    opacity: 1;
-    visibility: visible;
-}
-nav ul ul li{
-    position: relative;
-    margin: 0px;
-    width: 150px;
-    float: none;
-    display: list-item;
-    border-bottom: 1px solid rgba(0, 0, 0, .3);
-}
-nav ul ul li a{
-    line-height: 50px;
-}
+
