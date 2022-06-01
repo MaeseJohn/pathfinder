@@ -11,6 +11,13 @@ body{
 nav{
     background: #1b1b1b;
 }
+input{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    background-color: #3f3e3e;
+    width: 10%;
+}
 nav:after{
 content: '';
 clear: both;
@@ -27,8 +34,7 @@ nav .logo{
 nav ul{
     float: right;
     list-style: none;
-    margin-right: 50px;
-    position: relative;
+    position:relative;
 }
 nav ul .run{
     background-color: rgba(106, 238, 106, 0.76);
