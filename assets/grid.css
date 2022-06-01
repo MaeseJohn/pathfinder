@@ -1,18 +1,9 @@
-#row0{
-    background-color: #1b1b1b;
+td{
+    background-color: black;
+    border: 5px solid black;
 }
-#cell0{
-    background-color: #1b1b1b;
-}
-
-#lastrow{
-    background-color: #1b1b1b; 
-}
-#lastcell{
-    background-color: #1b1b1b;
-}
-
 #grid{
+    border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
 }
