@@ -13,28 +13,26 @@
     <nav id="navbar">
         <div class="logo">Path Finding Visualizer</div>
         <ul>
-            <li class="run"><a href="#">Run</a></li>
+            <li>
+                <a href="#">Grid size:</a>
+                <input type="text" id="heigth">
+                <input type="text" id="width">
+                <a href="#" class="create button" id="create">Create grid</a>        
+            </li>
             <li>
                 <a href="#">Algorithim</a>
-                <ul>
-                    <li><a href="#">Recursion</a></li>
-                </ul>
+               
+                <select id="country" name="country">
+                <option value="tr">Tail Recursion</option>
+                <option value="di">Dijkstra's algorithm</option>
+                <option value="re">Recursion</option>
+                </select>
             </li>
             <li>
-                <a href="#">Maze size</a>
-                <ul>
-                    <li><a id="mazeSize" href="#">24x24</a></li>
-
-                </ul>
-            </li>
-            <li>
-                <a href="#">Maze type</a>
-                <ul>
-                    <li><a href="#">Normal</a></li>
-                    <li><a href="#">Weighted</a></li>
-                </ul>
-            </li>
-            <li class="clear"><a href="#">Clear</a></li>
+                <a href="#" class="run button" id="run">Run</a>
+                <a href="#" class="clear button" id="clear">Clear</a>
+            </li> 
+               
         </ul>
     </nav>
 
