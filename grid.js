@@ -2,6 +2,7 @@ class Grid {
 
     #rows
     #columns
+    cells = []
     constructor(rows, columns)
     {
         this.#rows    = rows
@@ -17,18 +18,23 @@ class Grid {
         table.style.width  = sideSizes.width + 'px'
         table.style.height = sideSizes.height + 'px'
 
-        for(let i = 0; i < this.#rows; i++)
+        for(let x = 0; x < this.#rows; x++)
         {
             let row = document.createElement("tr")
-            row.id  = 'row' + i 
             table.appendChild(row)
+            
+            const rows = []
 
             for(let i = 0; i <  this.#columns; i++)
             {
                 let cell = document.createElement('td')
-                cell.id  =  'cell' + i  
+                cell.id  =  `cell${x}${i}`
                 row.appendChild(cell)
+
+                rows.push(new Cell(x, i))
             }
+
+            this.cells.push(rows)
         }
     }
 
