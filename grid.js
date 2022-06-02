@@ -1,4 +1,4 @@
-class grid {
+class Grid {
 
     #rows
     #columns
