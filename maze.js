@@ -58,4 +58,12 @@ class maze {
         return sideSizes;
     }
 
+    removeGrid()
+    {
+        for(let i = 0; i < this.#rows; i++)
+        {
+            let row = document.getElementById('row' + i)
+            row.remove()
+        }
+    }
 }
