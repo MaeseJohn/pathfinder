@@ -1,4 +1,4 @@
-class maze {
+class grid {
 
     #rows
     #columns

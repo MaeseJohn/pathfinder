@@ -11,6 +11,6 @@ CREATE_BUTTON.onclick = function(){
     let grid_height = document.getElementById('heigth').value
     let grid_width  = document.getElementById('width').value
     
-    grid = new maze(grid_height, grid_width)
+    grid = new grid(grid_height, grid_width)
     grid.makeGrid()
 }
