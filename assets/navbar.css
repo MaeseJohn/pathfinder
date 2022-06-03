@@ -11,13 +11,6 @@ body{
 nav{
     background: #1b1b1b;
 }
-ul li input{
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    background-color: #3f3e3e;
-    width: 10%;
-}
 nav:after{
     content: '';
     clear: both;
@@ -35,10 +28,6 @@ nav ul{
     float: right;
     list-style: none;
     position:relative;
-}
-nav ul li .create{
-    background-color: rgba(29, 177, 169, 0.966);
-    border-radius: 13px;
 }
 nav ul .run{
     background-color: rgba(106, 238, 106, 0.5);
@@ -58,6 +47,13 @@ nav ul li{
     background: #1b1b1b;
     margin: 0 15px;
 }
+ul li input{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    background-color: #3f3e3e;
+    width: 30px;
+}
 nav ul li a{
     color: white;
     text-decoration: none;
@@ -70,5 +66,9 @@ nav ul li select{
     background-color: #1b1b1b;
     line-height: 70px;
     font-size: 18px;
+}
+nav ul li .create{
+    background-color: rgba(29, 177, 169, 0.966);
+    border-radius: 13px;
 }
 
