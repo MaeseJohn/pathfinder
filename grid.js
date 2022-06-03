@@ -66,10 +66,12 @@ class Grid {
 
     removeGrid()
     {
-        for(let i = 0; i < this.#rows; i++)
-        {
-            let row = document.getElementById('row' + i)
-            row.remove()
+        for(let x = 0; x < this.#rows; x++){
+            for(let i = 0; i < this.#columns; i++)
+            {
+                let row = document.getElementById(`cell${x}${i}`)
+                row.remove()
+            }
         }
     }
 }
