@@ -2,7 +2,7 @@ class Grid {
 
     #rows
     #columns
-    cells = []
+    #cells = []
     constructor(rows, columns)
     {
         this.#rows    = rows
@@ -31,10 +31,10 @@ class Grid {
                 cell.id  =  `cell${x}${i}`
                 row.appendChild(cell)
 
-                rows.push(new Cell(x, i))
+                rows.push(new Cell(x, i, cell))
             }
 
-            this.cells.push(rows)
+            this.#cells.push(rows)
         }
     }
 
@@ -73,5 +73,22 @@ class Grid {
                 row.remove()
             }
         }
+    }
+    
+    // GETTERS
+
+    getRows()
+    {
+        return this.#rows
+    }
+
+    getColumns()
+    {
+        return this.#columns
+    }
+
+    getCell(row, column)
+    {
+        return this.#cells[row][column]
     }
 }

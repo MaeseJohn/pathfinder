@@ -15,3 +15,16 @@ CREATE_BUTTON.onclick = function(){
     grid = new Grid(grid_height, grid_width)
     grid.makeGrid()
 }
+
+const MAZE_RANDOMIZER_BUTTON = document.getElementById('mazerun')
+
+
+
+MAZE_RANDOMIZER_BUTTON.onclick = function()
+{
+    let mazerun
+    let algorithim = new Backtraking()
+
+    mazerun = new Maze()
+    mazerun.generateMaze(grid, algorithim)
+}
