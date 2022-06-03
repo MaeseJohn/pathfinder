@@ -92,6 +92,7 @@ class Backtraking {
                                 stack.push(next)
                                 current.up()
                                 next.bottom()
+                                
                             }
                         }
                     break;
@@ -102,14 +103,6 @@ class Backtraking {
             {
                 stack.pop()
             }
-        }
-
-        for(let rows = 0; rows < grid.getRows(); rows++)
-        {
-            for(let columns = 0; columns < grid.getColumns(); columns++)
-            {
-                grid.getCell(rows, columns).cellStyle()
-            }   
         }
     }
 }

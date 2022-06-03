@@ -17,36 +17,43 @@ class Cell {
     left()
     {
         this.leftwall = false
+        this.cellStyle()
     }
 
     right()
     {
         this.rightwall = false
+        this.cellStyle()
     }
 
     bottom()
     {
         this.botwall = false
+        this.cellStyle()
     }
 
     up()
     {
         this.topwall = false
+        this.cellStyle()
     }
 
     cellStyle()
     {
-        let className = ''
-        className += this.topwall   ? 'top'   : ''
-        className += this.rightwall ? 'right' : ''
-        className += this.botwall   ? 'bot'   : ''
-        className += this.leftwall  ? 'left'  : ''
+        let className 
+    
+        let topname   = this.topwall   ? 'top'   : ''
+        let rightname = this.rightwall ? 'right' : ''
+        let botname   = this.botwall   ? 'bot'   : ''
+        let leftname  = this.leftwall  ? 'left'  : ''
+
+        className = topname + rightname + botname + leftname
     
         if(className == '')
         {
             className = 'nowalls'
         }
+
         this.cell.className = className
-        console.log('hola')
     }
 }
