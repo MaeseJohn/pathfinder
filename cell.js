@@ -53,7 +53,6 @@ class Cell {
         {
             className = 'nowalls'
         }
-
         this.cell.className = className
     }
 }

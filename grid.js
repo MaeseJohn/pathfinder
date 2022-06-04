@@ -69,10 +69,11 @@ class Grid {
         for(let x = 0; x < this.#rows; x++){
             for(let i = 0; i < this.#columns; i++)
             {
-                let row = document.getElementById(`cell${x}${i}`)
-                row.remove()
+                let cell = document.getElementById(`cell${x}${i}`)
+                cell.remove()
             }
         }
+        this.#cells.length = 0
     }
     
     // GETTERS

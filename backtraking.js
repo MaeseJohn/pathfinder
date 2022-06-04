@@ -4,8 +4,8 @@ class Backtraking {
     {
         let stack = []
 
-        const randomRow    = Math.round(Math.random() * grid.getRows())
-        const randomColumn = Math.round(Math.random() * grid.getColumns())
+        const randomRow    = Math.round(Math.random() * (grid.getRows() - 1))
+        const randomColumn = Math.round(Math.random() * (grid.getColumns() - 1))
         const firstcell    = grid.getCell(randomRow, randomColumn)
         
         firstcell.visited  = true
@@ -47,7 +47,7 @@ class Backtraking {
                         if(current.column < grid.getColumns() - 1)
                         {
                             let next = grid.getCell(current.row, current.column + 1)
-                            console.log(next)
+    
                             if(!next.visited)
                             {
                                 valid        = true
@@ -103,6 +103,7 @@ class Backtraking {
             {
                 stack.pop()
             }
+            
         }
     }
 }

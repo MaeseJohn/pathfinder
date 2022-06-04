@@ -18,13 +18,18 @@ CREATE_BUTTON.onclick = function(){
 
 const MAZE_RANDOMIZER_BUTTON = document.getElementById('mazerun')
 
-
+let mazerun
 
 MAZE_RANDOMIZER_BUTTON.onclick = function()
 {
-    let mazerun
-    let algorithim = new Backtraking()
+    if(mazerun != undefined)
+    {
+        grid.removeGrid()
+        grid.makeGrid()
+    }
 
-    mazerun = new Maze()
+    let algorithim  = new Backtraking()
+    
+    mazerun  = new Maze()
     mazerun.generateMaze(grid, algorithim)
 }
