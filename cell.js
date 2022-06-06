@@ -39,19 +39,19 @@ class Cell {
     }
 
     instack(){
-        this.cell.style.backgroundColor = 'orange' 
+        this.cell.className = 'stack' 
     }
 
     outstack(){
-        this.cell.style.backgroundColor = 'white' 
+        this.cell.className = ''  
     }
 
     cellStyle()
     {
-        let top   = this.topwall ? 'solid' : 'hidden'
+        let top   = this.topwall   ? 'solid' : 'hidden'
         let right = this.rightwall ? 'solid' : 'hidden'
-        let bot   = this.botwall ? 'solid' : 'hidden'
-        let left  = this.leftwall ? 'solid' : 'hidden'
+        let bot   = this.botwall   ? 'solid' : 'hidden'
+        let left  = this.leftwall  ? 'solid' : 'hidden'
 
         this.cell.style.borderStyle = `${top} ${right} ${bot} ${left}`
     }

@@ -21,6 +21,7 @@ class Grid {
         for(let x = 0; x < this.#rows; x++)
         {
             let row = document.createElement('tr')
+            row.id = `row${x}`
             table.appendChild(row)
             
             const rows = []
@@ -66,11 +67,8 @@ class Grid {
     removeGrid()
     {
         for(let x = 0; x < this.#rows; x++){
-            for(let i = 0; i < this.#columns; i++)
-            {
-                let cell = document.getElementById(`cell${x}${i}`)
-                cell.remove()
-            }
+            let row = document.getElementById(`row${x}`)
+            row.remove()
         }
         this.#cells.length = 0
     }

@@ -1,5 +1,5 @@
 class Maze {
-    generateMaze(grid, algorithim)
+    static generateMaze(grid, algorithim)
     {
         algorithim.generateMaze(grid)
     }

@@ -2,6 +2,10 @@ td{
     background-color: white;
     border: 5px solid black;
 }
+.stack{
+    background-color: papayawhip;
+    border: 5px solid black;
+}
 
 #grid{
     border-collapse: collapse;
