@@ -39,11 +39,11 @@ class Cell {
     }
 
     instack(){
-        this.cell.className = 'stack' 
+        this.cell.style.backgroundColor = 'papayawhip' 
     }
 
     outstack(){
-        this.cell.className = ''  
+        this.cell.style.backgroundColor = 'white'  
     }
 
     cellStyle()
