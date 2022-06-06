@@ -1,6 +1,11 @@
 class Backtraking {
 
-    generateMaze(grid)
+    #timeout(ms)
+    {
+        return new Promise(resolve => setTimeout(resolve, ms))
+    }
+
+    async generateMaze(grid)
     {
         let stack = []
 
@@ -103,7 +108,7 @@ class Backtraking {
             {
                 stack.pop()
             }
-            
+            await this.#timeout(0.5)
         }
     }
 }

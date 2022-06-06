@@ -55,8 +55,7 @@ class Grid {
         {
             sideSizes.height = width_columns * this.#rows
         }
-
-        if(width_columns > height_rows)
+        else if(width_columns > height_rows)
         {
             sideSizes.width = height_rows *  this.#columns
         }
