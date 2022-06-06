@@ -43,6 +43,7 @@ class Backtraking {
                                 stack.push(next)
                                 current.left()
                                 next.right()
+                                //next.instack()
                             }
                         }
                     break;
@@ -61,6 +62,7 @@ class Backtraking {
                                 stack.push(next)
                                 current.right()
                                 next.left()
+                               // next.instack()
                             }
                         }
                     break;
@@ -79,6 +81,7 @@ class Backtraking {
                                 stack.push(next)
                                 current.bottom()
                                 next.up()
+                               // next.instack()
                             }
                         }
                     break;
@@ -97,7 +100,7 @@ class Backtraking {
                                 stack.push(next)
                                 current.up()
                                 next.bottom()
-                                
+                                //next.instack()
                             }
                         }
                     break;
@@ -106,9 +109,9 @@ class Backtraking {
 
             if(!valid)
             {
-                stack.pop()
+                stack.pop()//.outstack()
             }
-            await this.#timeout(0.5)
+            await this.#timeout(500)
         }
     }
 }

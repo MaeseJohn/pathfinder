@@ -20,7 +20,7 @@ class Grid {
 
         for(let x = 0; x < this.#rows; x++)
         {
-            let row = document.createElement("tr")
+            let row = document.createElement('tr')
             table.appendChild(row)
             
             const rows = []

@@ -8,9 +8,9 @@ class Cell {
         this.visited = false
 
         this.topwall   = true
+        this.rightwall = true
         this.botwall   = true
         this.leftwall  = true
-        this.rightwall = true
         
     }
 
@@ -38,21 +38,21 @@ class Cell {
         this.cellStyle()
     }
 
+    instack(){
+        this.cell.style.backgroundColor = 'orange' 
+    }
+
+    outstack(){
+        this.cell.style.backgroundColor = 'white' 
+    }
+
     cellStyle()
     {
-        let className 
-    
-        let topname   = this.topwall   ? 'top'   : ''
-        let rightname = this.rightwall ? 'right' : ''
-        let botname   = this.botwall   ? 'bot'   : ''
-        let leftname  = this.leftwall  ? 'left'  : ''
+        let top   = this.topwall ? 'solid' : 'hidden'
+        let right = this.rightwall ? 'solid' : 'hidden'
+        let bot   = this.botwall ? 'solid' : 'hidden'
+        let left  = this.leftwall ? 'solid' : 'hidden'
 
-        className = topname + rightname + botname + leftname
-    
-        if(className == '')
-        {
-            className = 'nowalls'
-        }
-        this.cell.className = className
+        this.cell.style.borderStyle = `${top} ${right} ${bot} ${left}`
     }
 }
