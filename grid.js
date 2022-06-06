@@ -48,7 +48,7 @@ class Grid {
             height: window.innerHeight - navbarHeight
         }
 
-        let width_columns = sideSizes.width/ this.#columns
+        let width_columns = sideSizes.width/this.#columns
         let height_rows   = sideSizes.height/this.#rows
 
         if(width_columns < height_rows)
@@ -56,7 +56,7 @@ class Grid {
             sideSizes.height = width_columns * this.#rows
         }
 
-        if(height_rows < width_columns)
+        if(width_columns > height_rows)
         {
             sideSizes.width = height_rows *  this.#columns
         }
