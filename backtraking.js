@@ -112,7 +112,6 @@ class Backtraking {
                 stack.pop().outstack()
             }
             await this.#timeout(500)
-            console.log("hola")
         }
     }
 }

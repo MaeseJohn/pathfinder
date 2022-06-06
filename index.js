@@ -7,7 +7,6 @@ gridObjetc = () => {
     let grid_width  = document.getElementById('width').value
     
     grid = new Grid(grid_height, grid_width)
-
 }
 
 CREATE_BUTTON.onclick = function(){
