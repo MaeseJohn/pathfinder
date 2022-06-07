@@ -5,7 +5,7 @@ class Backtraking {
         return new Promise(resolve => setTimeout(resolve, ms))
     }
 
-    /*async*/ generateMaze(grid)
+    async generateMaze(grid)
     {
         let stack = []
 
@@ -22,7 +22,7 @@ class Backtraking {
             let checks    = 0
             let current   = stack[stack.length - 1]
             
-            while(!valid && checks < 15)
+            while(!valid && checks < 30)
             {
                 checks++
                 let direction = Math.round(Math.random() * 4)
@@ -43,7 +43,7 @@ class Backtraking {
                                 stack.push(next)
                                 current.left()
                                 next.right()
-                                //next.instack()
+                                next.instack()
                             }
                         }
                     break;
@@ -62,7 +62,7 @@ class Backtraking {
                                 stack.push(next)
                                 current.right()
                                 next.left()
-                               // next.instack()
+                                next.instack()
                             }
                         }
                     break;
@@ -81,7 +81,7 @@ class Backtraking {
                                 stack.push(next)
                                 current.bottom()
                                 next.up()
-                               // next.instack()
+                                next.instack()
                             }
                         }
                     break;
@@ -100,7 +100,7 @@ class Backtraking {
                                 stack.push(next)
                                 current.up()
                                 next.bottom()
-                              //  next.instack()
+                                next.instack()
                             }
                         }
                     break;
@@ -109,9 +109,9 @@ class Backtraking {
 
             if(!valid)
             {
-                stack.pop()
+                stack.pop().outstack()
             }
-           // await this.#timeout(500)
+            await this.#timeout()
         }
     }
 }

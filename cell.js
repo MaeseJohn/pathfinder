@@ -38,20 +38,33 @@ class Cell {
         this.cellStyle()
     }
 
-    instack(){
+    instack()
+    {
         this.cell.style.backgroundColor = 'papayawhip' 
     }
 
-    outstack(){
+    outstack()
+    {
         this.cell.style.backgroundColor = 'white'  
     }
-
+    
     cellStyle()
     {
-        let top   = this.topwall   ? 'solid' : 'hidden'
-        let right = this.rightwall ? 'solid' : 'hidden'
-        let bot   = this.botwall   ? 'solid' : 'hidden'
-        let left  = this.leftwall  ? 'solid' : 'hidden'
+        //Undraw walls
+        let top   = this.topwall   ? 'black' : 'white'
+        let right = this.rightwall ? 'black' : 'white'
+        let bot   = this.botwall   ? 'black' : 'white'
+        let left  = this.leftwall  ? 'black' : 'white'
+
+        this.cell.style.borderColor = `${top} ${right} ${bot} ${left}`
+
+
+        //Putting dashed for undraw walls cuz hidden or none colapse the cells
+        //and change his size
+        top   = this.topwall   ? 'solid' : 'dashed'
+        right = this.rightwall ? 'solid' : 'dashed'
+        bot   = this.botwall   ? 'solid' : 'dashed'
+        left  = this.leftwall  ? 'solid' : 'dashed'
 
         this.cell.style.borderStyle = `${top} ${right} ${bot} ${left}`
     }

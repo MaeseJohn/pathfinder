@@ -3,7 +3,7 @@ td{
     border: 5px solid black;
 }
 #grid{
-    border-collapse: collapse;
+    border-collapse:collapse;
     margin-left: auto;
     margin-right: auto;
 }
