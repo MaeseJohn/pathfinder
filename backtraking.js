@@ -1,10 +1,5 @@
 class Backtraking {
 
-    #timeout(ms)
-    {
-        return new Promise(resolve => setTimeout(resolve, ms))
-    }
-
     async generateMaze(grid)
     {
         let stack = []
@@ -15,6 +10,8 @@ class Backtraking {
         
         firstcell.visited  = true
         stack.push(firstcell)
+
+        let selectvalue = document.getElementById('randomizerspeed').value
 
         while(stack.length > 0)
         {
@@ -111,8 +108,8 @@ class Backtraking {
             {
                 stack.pop().outstack()
             }
-            let time = (7000 / (grid.getColumns() * grid.getRows()))
-            await this.#timeout(time)
+
+            await Features.delay(selectvalue)
         }
     }
 }

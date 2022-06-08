@@ -32,5 +32,5 @@ MAZE_RANDOMIZER_BUTTON.onclick = function()
 
     algorithim = new Backtraking()
     
-    Maze.generateMaze(grid, algorithim)
+    Features.generateMaze(grid, algorithim)
 }

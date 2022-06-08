@@ -29,8 +29,13 @@
                 </select>
             </li>
             <li>
-                <a href="#" class="projective">Time:</a>
-                <input type="text" id="randomizertimer">
+                <a href="#" class="projective">Speed:</a>
+                <select name="randomizerspeed" id="randomizerspeed">
+                    <option value="0">Instant</option>
+                    <option value="1">Quick</option>
+                    <option value="2">Average</option>
+                    <option value="3">Slow</option>
+                </select>
             </li>
             <li>
                 <a href="#" class="run button" id="mazerun">Run</a>
@@ -38,7 +43,7 @@
             <li>
                 <a href="#" class="projective">Pathfinder:</a>
                
-                <select name="pathfinders">
+                <select name="pathfinders" id="pathfinders">
                 <option value="tr">Tail Recursion</option>
                 <option value="di">Dijkstra's algorithm</option>
                 <option value="re">Recursion</option>
@@ -60,8 +65,8 @@
 
     <script src="cell.js"></script>
     <script src="grid.js"></script> 
+    <script src="features.js"></script>
     <script src="backtraking.js"></script>
-    <script src="maze.js"></script>
     <script src="index.js"></script>   
 </body>
 </html>
