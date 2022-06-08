@@ -40,7 +40,7 @@ class Cell {
 
     instack()
     {
-        this.cell.style.backgroundColor = 'papayawhip' 
+        this.cell.style.backgroundColor = 'lightblue' 
     }
 
     outstack()
