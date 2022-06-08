@@ -14,7 +14,7 @@
         <div class="logo">Path Finding Visualizer</div>
         <ul>
             <li>
-                <a href="#">Grid size:</a>
+                <a href="#" class="projective">Size:</a>
                 <input type="text" id="heigth">
                 <input type="text" id="width">       
             </li>
@@ -22,22 +22,31 @@
                 <a href="#" class="create button" id="create">Create grid</a> 
             </li>
             <li>
-                <a href="#">Maze randomizer:</a>
+                <a href="#" class="projective">Randomizer:</a>
+
                 <select name="randomicers">
                     <option value="bt">Backtracking</option>
                 </select>
             </li>
             <li>
+                <a href="#" class="projective">Time:</a>
+                <input type="text" id="randomizertimer">
+            </li>
+            <li>
                 <a href="#" class="run button" id="mazerun">Run</a>
             </li>
             <li>
-                <a href="#">Pathfinder</a>
+                <a href="#" class="projective">Pathfinder:</a>
                
                 <select name="pathfinders">
                 <option value="tr">Tail Recursion</option>
                 <option value="di">Dijkstra's algorithm</option>
                 <option value="re">Recursion</option>
                 </select>
+            </li>
+            <li>
+                <a href="#" class="projective">Time:</a>
+                <input type="text" id="pathfindertimer">
             </li>
             <li>
                 <a href="#" class="run button" id="pathrun">Run</a>

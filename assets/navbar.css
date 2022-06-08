@@ -45,7 +45,7 @@ nav ul .button:hover{
 nav ul li{
     float: left;
     background: #1b1b1b;
-    margin: 0 15px;
+    margin: 0 10px;
 }
 ul li input{
     color: white;
@@ -59,7 +59,14 @@ nav ul li a{
     text-decoration: none;
     line-height: 70px;
     font-size: 18px;
-    padding: 8px 15px; 
+    padding: 8px 10px; 
+}
+nav ul li .projective{
+    color: white;
+    text-decoration: none;
+    line-height: 70px;
+    font-size: 18px;
+    padding: 8px 0px; 
 }
 nav ul li select{
     color: white;
