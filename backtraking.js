@@ -112,7 +112,6 @@ class Backtraking {
                 stack.pop().outstack()
             }
             let time = (7000 / (grid.getColumns() * grid.getRows()))
-            console.log(time)
             await this.#timeout(time)
         }
     }

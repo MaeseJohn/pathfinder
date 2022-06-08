@@ -1,13 +1,8 @@
 const CREATE_BUTTON = document.getElementById('create')
 
 let grid
-
-gridObjetc = () => {
-    let grid_height = document.getElementById('heigth').value
-    let grid_width  = document.getElementById('width').value
-    
-    grid = new Grid(grid_height, grid_width)
-}
+let grid_height
+let grid_width 
 
 CREATE_BUTTON.onclick = function(){
 
@@ -16,7 +11,9 @@ CREATE_BUTTON.onclick = function(){
         grid.removeGrid();
     }
 
-    gridObjetc()
+    grid_height = document.getElementById('heigth').value
+    grid_width  = document.getElementById('width').value
+    grid = new Grid(grid_height, grid_width)
     grid.makeGrid()
 }
 
@@ -29,9 +26,7 @@ MAZE_RANDOMIZER_BUTTON.onclick = function()
     if(algorithim != undefined)
     {
         grid.removeGrid()
-
-        gridObjetc()
-
+        grid = new Grid(grid_height, grid_width)
         grid.makeGrid()
     }
 
