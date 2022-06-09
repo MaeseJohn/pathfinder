@@ -30,7 +30,7 @@ MAZE_RANDOMIZER_BUTTON.onclick = function()
         grid.makeGrid()
     }
 
-    algorithim = new Depthfirst()
+    algorithim = new Prims()
     
     Features.generateMaze(grid, algorithim)
 }

@@ -11,7 +11,7 @@ class Depthfirst {
         firstcell.visited  = true
         stack.push(firstcell)
 
-        let selectvalue = document.getElementById('randomizerspeed').value
+        const speed = document.getElementById('randomizerspeed').value
 
         while(stack.length > 0)
         {
@@ -28,9 +28,9 @@ class Depthfirst {
                 {
                     // LEFT
                     case 0:
-                        if(current.column > 0)
+                        if(current.getColumn() > 0)
                         {
-                            let next = grid.getCell(current.row, current.column - 1)
+                            let next = grid.getCell(current.getRow(), current.getColumn() - 1)
                             
                             if(!next.visited)
                             {
@@ -49,9 +49,9 @@ class Depthfirst {
 
                     // RIGHT
                     case 1:
-                        if(current.column < grid.getColumns() - 1)
+                        if(current.getColumn() < grid.getColumns() - 1)
                         {
-                            let next = grid.getCell(current.row, current.column + 1)
+                            let next = grid.getCell(current.getRow(), current.getColumn() + 1)
     
                             if(!next.visited)
                             {
@@ -70,9 +70,9 @@ class Depthfirst {
 
                     // BOTTOM
                     case 2:
-                        if(current.row < grid.getRows() - 1)
+                        if(current.getRow() < grid.getRows() - 1)
                         {
-                            let next = grid.getCell(current.row + 1, current.column)
+                            let next = grid.getCell(current.getRow() + 1, current.getColumn())
                             
                             if(!next.visited)
                             {
@@ -91,9 +91,9 @@ class Depthfirst {
 
                     // UP
                     case 3:
-                        if(current.row > 0)
+                        if(current.getRow() > 0)
                         {
-                            let next = grid.getCell(current.row - 1, current.column)
+                            let next = grid.getCell(current.getRow() - 1, current.getColumn())
                             
                             if(!next.visited)
                             {
@@ -122,7 +122,7 @@ class Depthfirst {
                 }
             }
 
-            await Features.delay(selectvalue)
+            await Features.delay(speed)
         }
     }
 }

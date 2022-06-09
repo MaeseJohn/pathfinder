@@ -1,9 +1,13 @@
 class Cell {
+
+    #row
+    #column
+    #cell
     constructor(row, column, cell)
     {
-        this.row    = row
-        this.column = column
-        this.cell   = cell
+        this.#row    = row
+        this.#column = column
+        this.#cell   = cell
 
         this.visited = false
 
@@ -40,17 +44,17 @@ class Cell {
 
     drawLightblue()
     {
-        this.cell.style.backgroundColor = 'lightblue'
+        this.#cell.style.backgroundColor = 'lightblue'
     }
 
     drawBlue()
     {
-        this.cell.style.backgroundColor = '#5dade2'
+        this.#cell.style.backgroundColor = '#5dade2'
     }
 
     drawWhite()
     {
-        this.cell.style.backgroundColor = 'white'
+        this.#cell.style.backgroundColor = 'white'
     }
     
     cellStyle()
@@ -61,7 +65,7 @@ class Cell {
         let bot   = this.botwall   ? 'black' : 'white'
         let left  = this.leftwall  ? 'black' : 'white'
 
-        this.cell.style.borderColor = `${top} ${right} ${bot} ${left}`
+        this.#cell.style.borderColor = `${top} ${right} ${bot} ${left}`
 
 
         //Putting dashed for undraw walls cuz hidden or none colapse the cells
@@ -71,6 +75,22 @@ class Cell {
         bot   = this.botwall   ? 'solid' : 'dashed'
         left  = this.leftwall  ? 'solid' : 'dashed'
 
-        this.cell.style.borderStyle = `${top} ${right} ${bot} ${left}`
+        this.#cell.style.borderStyle = `${top} ${right} ${bot} ${left}`
+    }
+
+
+    getRow()
+    {
+        return this.#row
+    }
+
+    getColumn()
+    {
+        return this.#column
+    }
+
+    getCell()
+    {
+        return this.#cell
     }
 }
