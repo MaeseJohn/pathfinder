@@ -1,4 +1,4 @@
-class Backtraking {
+class Depthfirst {
 
     async generateMaze(grid)
     {
