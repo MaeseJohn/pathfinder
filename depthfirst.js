@@ -40,7 +40,9 @@ class Depthfirst {
                                 stack.push(next)
                                 current.left()
                                 next.right()
-                                next.instack()
+                                
+                                current.drawLightblue()
+                                next.drawBlue()
                             }
                         }
                     break;
@@ -59,7 +61,9 @@ class Depthfirst {
                                 stack.push(next)
                                 current.right()
                                 next.left()
-                                next.instack()
+
+                                current.drawLightblue()
+                                next.drawBlue()
                             }
                         }
                     break;
@@ -78,7 +82,9 @@ class Depthfirst {
                                 stack.push(next)
                                 current.bottom()
                                 next.up()
-                                next.instack()
+
+                                current.drawLightblue()
+                                next.drawBlue()
                             }
                         }
                     break;
@@ -97,7 +103,9 @@ class Depthfirst {
                                 stack.push(next)
                                 current.up()
                                 next.bottom()
-                                next.instack()
+                                
+                                current.drawLightblue()
+                                next.drawBlue()
                             }
                         }
                     break;
@@ -106,7 +114,12 @@ class Depthfirst {
 
             if(!valid)
             {
-                stack.pop().outstack()
+                stack.pop().drawWhite()
+                
+                if(stack.length > 0)
+                {
+                    stack[stack.length - 1].drawBlue()
+                }
             }
 
             await Features.delay(selectvalue)

@@ -38,14 +38,19 @@ class Cell {
         this.cellStyle()
     }
 
-    instack()
+    drawLightblue()
     {
-        this.cell.style.backgroundColor = 'lightblue' 
+        this.cell.style.backgroundColor = 'lightblue'
     }
 
-    outstack()
+    drawBlue()
     {
-        this.cell.style.backgroundColor = 'white'  
+        this.cell.style.backgroundColor = '#5dade2'
+    }
+
+    drawWhite()
+    {
+        this.cell.style.backgroundColor = 'white'
     }
     
     cellStyle()
