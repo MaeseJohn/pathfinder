@@ -70,9 +70,9 @@ class Cell {
 
 
     //ColorManage
-    drawLightblue()
+    drawGreen()
     {
-        this.#cell.style.backgroundColor = 'lightblue'
+        this.#cell.style.backgroundColor = '#52be80'
     }
 
     drawBlue()

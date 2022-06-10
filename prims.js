@@ -75,7 +75,7 @@ class Prims{
             if(!isInOriginal)
             {
                 array.push(concat[i])
-                concat[i].drawLightblue()
+                concat[i].drawBlue()
             }
             isInOriginal = false
         }
@@ -88,6 +88,7 @@ class Prims{
 
         const firstCell    = grid.getRandomCell()
         firstCell.visited  = true
+        firstCell.drawWhite()
 
         cellsArray = this.#concatArray(cellsArray, this.#getAdyacentCells(grid, firstCell))
 

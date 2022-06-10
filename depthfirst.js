@@ -38,8 +38,8 @@ class Depthfirst {
                                 current.removeTopWall()
                                 next.removeBotWall()
                                 
-                                current.drawLightblue()
-                                next.drawBlue()
+                                current.drawBlue()
+                                next.drawGreen()
                             }
                         }
                     break;
@@ -59,8 +59,8 @@ class Depthfirst {
                                 current.removeRightWall()
                                 next.removeLeftWall()
 
-                                current.drawLightblue()
-                                next.drawBlue()
+                                current.drawBlue()
+                                next.drawGreen()
                             }
                         }
                     break;
@@ -80,8 +80,8 @@ class Depthfirst {
                                 current.removeBotWall()
                                 next.removeTopWall()
 
-                                current.drawLightblue()
-                                next.drawBlue()
+                                current.drawBlue()
+                                next.drawGreen()
                             }
                         }
                     break;
@@ -101,8 +101,8 @@ class Depthfirst {
                                 current.removeLeftWall()
                                 next.removeRightWall()
                                 
-                                current.drawLightblue()
-                                next.drawBlue()
+                                current.drawBlue()
+                                next.drawGreen()
                             }
                         }
                     break;
@@ -115,7 +115,7 @@ class Depthfirst {
                 
                 if(stack.length > 0)
                 {
-                    stack[stack.length - 1].drawBlue()
+                    stack[stack.length - 1].drawGreen()
                 }
             }
 
