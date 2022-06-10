@@ -29,32 +29,32 @@ class Prims{
     {
         if(cell1.getRow() > cell2.getRow())
         {
-            cell1.up()
-            cell2.bottom()
+            cell1.removeTopWall()
+            cell2.removeBotWall()
             return
         }
         if(cell1.getRow() < cell2.getRow())
         {
-            cell1.bottom() 
-            cell2.up()
+            cell1.removeBotWall() 
+            cell2.removeTopWall()
             return
         }
 
         if(cell1.getColumn() > cell2.getColumn())
         {
-            cell1.left() 
-            cell2.right()  
+            cell1.removeLeftWall() 
+            cell2.removeRightWall()  
             return
         }
         if(cell1.getColumn() < cell2.getColumn())
         {
-            cell1.right() 
-            cell2.left() 
+            cell1.removeRightWall() 
+            cell2.removeLeftWall() 
             return
         }
     }
 
-    #concatarray(original, concat)
+    #concatArray(original, concat)
     {
         let isInOriginal = false
         let array = original
@@ -83,13 +83,10 @@ class Prims{
     {
         let cellsArray =  []
 
-        const randomRow    = Math.round(Math.random() * (grid.getRows() - 1))
-        const randomColumn = Math.round(Math.random() * (grid.getColumns() - 1))
-        const firstCell    = grid.getCell(randomRow, randomColumn)
-
+        const firstCell    = grid.getRandomCell()
         firstCell.visited  = true
 
-        cellsArray = this.#concatarray(cellsArray, this.#getAdyacentCells(firstCell))
+        cellsArray = this.#concatArray(cellsArray, this.#getAdyacentCells(firstCell))
 
         const speed = document.getElementById('randomizerspeed').value
 
@@ -106,10 +103,10 @@ class Prims{
 
             //Take a random adyacent visited cell from current and brack the wall to conect it with the maze
             let random =  Math.round(Math.random() * (currentAdyacentsVisited.length - 1))
-            this.#breakwall(currentAdyacentsVisited[random], current)
+            this.#breakWall(currentAdyacentsVisited[random], current)
             
             //Insert the none visited adyacent cells in the cells array without duplicates
-            cellsArray = this.#concatarray(cellsArray, currentAdyacentsNoVisited)
+            cellsArray = this.#concatArray(cellsArray, currentAdyacentsNoVisited)
 
             cellsArray[randomCell].drawWhite()
             cellsArray.splice(randomCell,1)

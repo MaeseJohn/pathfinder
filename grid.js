@@ -89,4 +89,11 @@ class Grid {
     {
         return this.#cells[row][column]
     }
+
+    getRandomCell()
+    {
+        const randomRow    = Math.round(Math.random() * (this.#rows - 1))
+        const randomColumn = Math.round(Math.random() * (this.#columns - 1))
+        return this.#cells[randomRow, randomColumn]
+    }
 }

@@ -1,13 +1,9 @@
 class Cell {
-
-    #row
-    #column
-    #cell
     constructor(row, column, cell)
     {
-        this.#row    = row
-        this.#column = column
-        this.#cell   = cell
+        this.row    = row
+        this.column = column
+        this.cell   = cell
 
         this.visited = false
 
@@ -18,48 +14,35 @@ class Cell {
         
     }
 
+    //
 
-    //Cambiar nombres
-    left()
+
+    //WallRemovers
+    removeLeftWall()
     {
         this.leftwall = false
-        this.cellStyle()
+        this.#updateCellStyle()
     }
 
-    right()
+    removeRightWall()
     {
         this.rightwall = false
-        this.cellStyle()
+        this.#updateCellStyle()
     }
 
-    bottom()
+    removeBotWall()
     {
         this.botwall = false
-        this.cellStyle()
+        this.#updateCellStyle()
     }
 
-    up()
+    removeTopWall()
     {
         this.topwall = false
-        this.cellStyle()
+        this.#updateCellStyle()
     }
 
-    drawLightblue()
-    {
-        this.#cell.style.backgroundColor = 'lightblue'
-    }
-
-    drawBlue()
-    {
-        this.#cell.style.backgroundColor = '#5dade2'
-    }
-
-    drawWhite()
-    {
-        this.#cell.style.backgroundColor = 'white'
-    }
-    
-    cellStyle()
+    #updateCellStyle()
     {
         //Undraw walls
         let top   = this.topwall   ? 'black' : 'white'
@@ -67,7 +50,7 @@ class Cell {
         let bot   = this.botwall   ? 'black' : 'white'
         let left  = this.leftwall  ? 'black' : 'white'
 
-        this.#cell.style.borderColor = `${top} ${right} ${bot} ${left}`
+        this.cell.style.borderColor = `${top} ${right} ${bot} ${left}`
 
 
         //Putting dashed for undraw walls cuz hidden or none colapse the cells
@@ -77,21 +60,25 @@ class Cell {
         bot   = this.botwall   ? 'solid' : 'dashed'
         left  = this.leftwall  ? 'solid' : 'dashed'
 
-        this.#cell.style.borderStyle = `${top} ${right} ${bot} ${left}`
+        this.cell.style.borderStyle = `${top} ${right} ${bot} ${left}`
     }
 
 
-    getRow()
+    //ColorManage
+    drawLightblue()
     {
-        return this.#row
-    }
-    getColumn()
-    {
-        return this.#column
+        this.cell.style.backgroundColor = 'lightblue'
     }
 
-    equals(cell)
+    drawBlue()
     {
-        return (this.#column == cell.getColumn() && this.#row == cell.getRow())
+        this.cell.style.backgroundColor = '#5dade2'
     }
+
+    drawWhite()
+    {
+        this.cell.style.backgroundColor = 'white'
+    }
+    
+  
 }

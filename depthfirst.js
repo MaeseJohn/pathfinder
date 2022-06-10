@@ -4,10 +4,7 @@ class Depthfirst {
     {
         let stack = []
 
-        const randomRow    = Math.round(Math.random() * (grid.getRows() - 1))
-        const randomColumn = Math.round(Math.random() * (grid.getColumns() - 1))
-        const firstcell    = grid.getCell(randomRow, randomColumn)
-        
+        const firstcell = grid.getRandomCell()
         firstcell.visited  = true
         stack.push(firstcell)
 
@@ -38,8 +35,8 @@ class Depthfirst {
                                 next.visited = true
 
                                 stack.push(next)
-                                current.left()
-                                next.right()
+                                current.removeLeftWall()
+                                next.removeRightWall()
                                 
                                 current.drawLightblue()
                                 next.drawBlue()
@@ -59,8 +56,8 @@ class Depthfirst {
                                 next.visited = true
 
                                 stack.push(next)
-                                current.right()
-                                next.left()
+                                current.removeRightWall()
+                                next.removeLeftWall()
 
                                 current.drawLightblue()
                                 next.drawBlue()
@@ -80,8 +77,8 @@ class Depthfirst {
                                 next.visited = true
 
                                 stack.push(next)
-                                current.bottom()
-                                next.up()
+                                current.removeBotWall()
+                                next.removeTopWall()
 
                                 current.drawLightblue()
                                 next.drawBlue()
@@ -103,8 +100,8 @@ class Depthfirst {
                                 next.visited = true
     
                                 stack.push(next)
-                                current.up()
-                                next.bottom()
+                                current.removeTopWall()
+                                next.removeBotWall()
                                 
                                 current.drawLightblue()
                                 next.drawBlue()
