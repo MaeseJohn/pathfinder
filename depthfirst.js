@@ -1,6 +1,6 @@
 class Depthfirst {
 
-    async generateMaze()
+    async generateMaze(grid)
     {
         let stack = []
 
@@ -15,8 +15,6 @@ class Depthfirst {
             let valid     = false
             let checks    = 0
             let current   = stack[stack.length - 1]
-
-            console.log(current)
             
             while(!valid && checks < 20)
             {

@@ -1,8 +1,7 @@
 class Prims{
 
-    #getAdyacentCells(cell)
+    #getAdyacentCells(grid, cell)
     {
-        console.log(cell)
         let array = []
 
         //Top
@@ -83,14 +82,14 @@ class Prims{
         return array
     }
     
-    async generateMaze()
+    async generateMaze(grid)
     {
         let cellsArray =  []
 
         const firstCell    = grid.getRandomCell()
         firstCell.visited  = true
 
-        cellsArray = this.#concatArray(cellsArray, this.#getAdyacentCells(firstCell))
+        cellsArray = this.#concatArray(cellsArray, this.#getAdyacentCells(grid, firstCell))
 
         const speed = document.getElementById('randomizerspeed').value
 
@@ -102,8 +101,8 @@ class Prims{
             current.visited = true
 
             //Separete visited and no visited adyacent cells from current cell
-            let currentAdyacentsNoVisited = this.#getAdyacentCells(current).filter(cell => cell.visited == false)
-            let currentAdyacentsVisited   = this.#getAdyacentCells(current).filter(cell => cell.visited == true) 
+            let currentAdyacentsNoVisited = this.#getAdyacentCells(grid, current).filter(cell => cell.visited == false)
+            let currentAdyacentsVisited   = this.#getAdyacentCells(grid, current).filter(cell => cell.visited == true) 
 
             //Take a random adyacent visited cell from current and brack the wall to conect it with the maze
             let random =  Math.round(Math.random() * (currentAdyacentsVisited.length - 1))

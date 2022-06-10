@@ -16,10 +16,11 @@ class Features {
         }
         return algorithim
     }
-    static generateMaze()
+
+    static generateMaze(grid)
     {
         let algorithim = Features.#selectAlgorithim()
-        algorithim.generateMaze()
+        algorithim.generateMaze(grid)
     }
 
     static delay(selectvalue)

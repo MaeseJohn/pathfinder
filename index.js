@@ -19,17 +19,14 @@ CREATE_BUTTON.onclick = function(){
 
 const MAZE_RANDOMIZER_BUTTON = document.getElementById('mazerun')
 
-let mazeInProcces
-
 MAZE_RANDOMIZER_BUTTON.onclick = function()
 {
-    if(mazeInProcces)
+    if(grid != undefined)
     {
         grid.removeGrid()
         grid = new Grid(grid_height, grid_width)
         grid.makeGrid()
     }
     
-    Features.generateMaze()
-    mazeInProcces = true
+    Features.generateMaze(grid)
 }
