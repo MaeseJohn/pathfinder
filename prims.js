@@ -1,6 +1,6 @@
 class Prims{
 
-    #adyacentCells(cell)
+    #getAdyacentCells(cell)
     {
         let array = []
 
@@ -21,10 +21,11 @@ class Prims{
         {
             array.push(grid.getCell(cell.getRow(), cell.getColumn() + 1))
         }
+
         return array
     }
 
-    #breakwall(cell1, cell2)
+    #breakWall(cell1, cell2)
     {
         if(cell1.getRow() > cell2.getRow())
         {
@@ -57,11 +58,12 @@ class Prims{
     {
         let isInOriginal = false
         let array = original
+
         for(let i = 0; i < concat.length; i++)
         {
             for(let j = 0; j < original.length; j++)
-            {
-                if(concat[i].getCell() == original[j].getCell())
+            { 
+                if(concat[i].equals(original[j]))
                 {
                     isInOriginal = true
                     break
@@ -70,7 +72,9 @@ class Prims{
             if(!isInOriginal)
             {
                 array.push(concat[i])
+                concat[i].drawLightblue()
             }
+            isInOriginal = false
         }
         return array
     }
@@ -85,35 +89,29 @@ class Prims{
 
         firstCell.visited  = true
 
-        cellsArray = this.#adyacentCells(firstCell)
+        cellsArray = this.#concatarray(cellsArray, this.#getAdyacentCells(firstCell))
 
         const speed = document.getElementById('randomizerspeed').value
 
         while(cellsArray.length > 0)
         {
+            //Pick randomcell from de array and mark it like visited
             let randomCell =  Math.round(Math.random() * (cellsArray.length - 1))
             let current = cellsArray[randomCell]
             current.visited = true
 
-            let currentAdyacentsNoVisited = this.#adyacentCells(current).filter(cell => cell.visited == false)
-            let currentAdyacentsVisited   = this.#adyacentCells(current).filter(cell => cell.visited == true) 
-            console.log('1')
-            console.log(currentAdyacentsNoVisited)
-            console.log(currentAdyacentsVisited)
-            console.log('2')
+            //Separete visited and no visited adyacent cells from current cell
+            let currentAdyacentsNoVisited = this.#getAdyacentCells(current).filter(cell => cell.visited == false)
+            let currentAdyacentsVisited   = this.#getAdyacentCells(current).filter(cell => cell.visited == true) 
 
-            if(currentAdyacentsVisited.length == 1)
-            {
-                this.#breakwall(currentAdyacentsVisited[0], current)
-            }
-            if(currentAdyacentsVisited.length > 1)
-            {
-                let random =  Math.round(Math.random() * (currentAdyacentsVisited.length - 1))
-                this.#breakwall(currentAdyacentsVisited[random], current)
-            }
-
+            //Take a random adyacent visited cell from current and brack the wall to conect it with the maze
+            let random =  Math.round(Math.random() * (currentAdyacentsVisited.length - 1))
+            this.#breakwall(currentAdyacentsVisited[random], current)
             
+            //Insert the none visited adyacent cells in the cells array without duplicates
             cellsArray = this.#concatarray(cellsArray, currentAdyacentsNoVisited)
+
+            cellsArray[randomCell].drawWhite()
             cellsArray.splice(randomCell,1)
             
             await Features.delay(speed)

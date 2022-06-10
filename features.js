@@ -8,12 +8,13 @@ class Features {
     {
         let ms
 
+        //Revisión
         switch(selectvalue)
         {
             //Instant
             case '0':
                 ms = 0
-            break;
+            break
 
             //Quick
             case '1':

@@ -91,8 +91,10 @@ class Depthfirst {
 
                     // UP
                     case 3:
+                        //GET 
                         if(current.getRow() > 0)
                         {
+                            //GET TOP GET... 
                             let next = grid.getCell(current.getRow() - 1, current.getColumn())
                             
                             if(!next.visited)

@@ -18,6 +18,8 @@ class Cell {
         
     }
 
+
+    //Cambiar nombres
     left()
     {
         this.leftwall = false
@@ -83,14 +85,13 @@ class Cell {
     {
         return this.#row
     }
-
     getColumn()
     {
         return this.#column
     }
 
-    getCell()
+    equals(cell)
     {
-        return this.#cell
+        return (this.#column == cell.getColumn() && this.#row == cell.getRow())
     }
 }

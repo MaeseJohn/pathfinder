@@ -73,8 +73,8 @@ class Grid {
         this.#cells.length = 0
     }
     
-    // GETTERS
 
+    // GETTERS
     getRows()
     {
         return this.#rows
