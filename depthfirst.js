@@ -1,6 +1,6 @@
 class Depthfirst {
 
-    async generateMaze(grid)
+    async generateMaze()
     {
         let stack = []
 
@@ -15,28 +15,30 @@ class Depthfirst {
             let valid     = false
             let checks    = 0
             let current   = stack[stack.length - 1]
+
+            console.log(current)
             
-            while(!valid && checks < 30)
+            while(!valid && checks < 20)
             {
                 checks++
                 let direction = Math.round(Math.random() * 4)
-
+                
                 switch(direction)
                 {
-                    // LEFT
+                    // UP
                     case 0:
-                        if(current.getColumn() > 0)
+                        if(!grid.isTopEdge(current))
                         {
-                            let next = grid.getCell(current.getRow(), current.getColumn() - 1)
+                            let next = grid.getTopCell(current)
                             
                             if(!next.visited)
                             {
                                 valid        = true
                                 next.visited = true
-
+                
                                 stack.push(next)
-                                current.removeLeftWall()
-                                next.removeRightWall()
+                                current.removeTopWall()
+                                next.removeBotWall()
                                 
                                 current.drawLightblue()
                                 next.drawBlue()
@@ -46,9 +48,9 @@ class Depthfirst {
 
                     // RIGHT
                     case 1:
-                        if(current.getColumn() < grid.getColumns() - 1)
+                        if(!grid.isRightEdge(current))
                         {
-                            let next = grid.getCell(current.getRow(), current.getColumn() + 1)
+                            let next = grid.getRightCell(current)
     
                             if(!next.visited)
                             {
@@ -65,11 +67,11 @@ class Depthfirst {
                         }
                     break;
 
-                    // BOTTOM
+                    // BOT
                     case 2:
-                        if(current.getRow() < grid.getRows() - 1)
+                        if(!grid.isBotEdge(current))
                         {
-                            let next = grid.getCell(current.getRow() + 1, current.getColumn())
+                            let next = grid.getBotCell(current)
                             
                             if(!next.visited)
                             {
@@ -86,22 +88,20 @@ class Depthfirst {
                         }
                     break;
 
-                    // UP
+                    // LEFT
                     case 3:
-                        //GET 
-                        if(current.getRow() > 0)
+                        if(!grid.isLeftEdge(current))
                         {
-                            //GET TOP GET... 
-                            let next = grid.getCell(current.getRow() - 1, current.getColumn())
+                            let next = grid.getLeftCell(current)
                             
                             if(!next.visited)
                             {
                                 valid        = true
                                 next.visited = true
-    
+
                                 stack.push(next)
-                                current.removeTopWall()
-                                next.removeBotWall()
+                                current.removeLeftWall()
+                                next.removeRightWall()
                                 
                                 current.drawLightblue()
                                 next.drawBlue()

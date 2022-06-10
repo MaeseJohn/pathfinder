@@ -1,7 +1,25 @@
 class Features {
-    static generateMaze(grid, algorithim)
+
+    static #selectAlgorithim()
     {
-        algorithim.generateMaze(grid)
+        let selectValue = document.getElementById('randomizerAlgorithim').value
+        let algorithim
+        switch(selectValue)
+        {
+            case '0':
+                algorithim = new Depthfirst()
+            break
+
+            case '1':
+                algorithim = new Prims()
+            break
+        }
+        return algorithim
+    }
+    static generateMaze()
+    {
+        let algorithim = Features.#selectAlgorithim()
+        algorithim.generateMaze()
     }
 
     static delay(selectvalue)

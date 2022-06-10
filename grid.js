@@ -13,8 +13,7 @@ class Grid {
     {
         let table = document.getElementById('grid')
         
-        let sideSizes
-        sideSizes = this.#gridSize()
+        let sideSizes = this.#gridSize()
         table.style.width  = sideSizes.width + 'px'
         table.style.height = sideSizes.height + 'px'
 
@@ -74,26 +73,55 @@ class Grid {
     }
     
 
+    // EDGE CHECK
+
+    isTopEdge(cell)
+    {
+        return (cell.getRow() == 0)
+    }
+
+    isRightEdge(cell)
+    {
+        return (cell.getColumn() == this.#columns - 1)
+    }
+
+    isBotEdge(cell)
+    {
+        return (cell.getRow() == this.#rows - 1)
+    }
+
+    isLeftEdge(cell)
+    {
+        return (cell.getColumn() == 0)
+    }
+    
+
     // GETTERS
-    getRows()
+
+    getTopCell(cell)
     {
-        return this.#rows
+        return this.#cells[cell.getRow() - 1][cell.getColumn()]
     }
 
-    getColumns()
+    getRightCell(cell)
     {
-        return this.#columns
+        return this.#cells[cell.getRow()][cell.getColumn() + 1]
     }
 
-    getCell(row, column)
+    getBotCell(cell)
     {
-        return this.#cells[row][column]
+        return this.#cells[cell.getRow() + 1][cell.getColumn()]
+    }
+
+    getLeftCell(cell)
+    {
+        return this.#cells[cell.getRow()][cell.getColumn() - 1]
     }
 
     getRandomCell()
     {
         const randomRow    = Math.round(Math.random() * (this.#rows - 1))
         const randomColumn = Math.round(Math.random() * (this.#columns - 1))
-        return this.#cells[randomRow, randomColumn]
+        return this.#cells[randomRow][randomColumn]
     }
 }

@@ -2,24 +2,28 @@ class Prims{
 
     #getAdyacentCells(cell)
     {
+        console.log(cell)
         let array = []
 
-        if(cell.getRow() > 0)
+        //Top
+        if(!grid.isTopEdge(cell))
         {
-            array.push(grid.getCell(cell.getRow() - 1, cell.getColumn()))
+            array.push(grid.getTopCell(cell))
         }
-        if(cell.getRow() < grid.getRows() - 1)
+        //Right
+        if(!grid.isRightEdge(cell))
         {
-            array.push(grid.getCell(cell.getRow() + 1, cell.getColumn()))
+            array.push(grid.getRightCell(cell))
         }
-
-        if(cell.getColumn() > 0)
+        //Bot
+        if(!grid.isBotEdge(cell))
         {
-            array.push(grid.getCell(cell.getRow(), cell.getColumn() - 1))
+            array.push(grid.getBotCell(cell))
         }
-        if(cell.getColumn() < grid.getRows() - 1)
+        //Left
+        if(!grid.isLeftEdge(cell))
         {
-            array.push(grid.getCell(cell.getRow(), cell.getColumn() + 1))
+            array.push(grid.getLeftCell(cell))
         }
 
         return array
@@ -79,7 +83,7 @@ class Prims{
         return array
     }
     
-    async generateMaze(grid)
+    async generateMaze()
     {
         let cellsArray =  []
 
