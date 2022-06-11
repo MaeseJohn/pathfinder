@@ -1,9 +1,0 @@
-class Kruskal {
-
-    generateMaze(grid)
-    {
-        
-
-    }
-
-}
