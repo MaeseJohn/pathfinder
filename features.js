@@ -11,7 +11,11 @@ class Features {
             break
 
             case '1':
-                algorithim = new Prims()
+                algorithim = new Prim()
+            break
+
+            case '2':
+                algorithim = new Kruskal()
             break
         }
         return algorithim

@@ -1,4 +1,4 @@
-class Prims{
+class Prim{
 
     #getAdyacentCells(grid, cell)
     {

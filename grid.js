@@ -124,4 +124,51 @@ class Grid {
         const randomColumn = Math.round(Math.random() * (this.#columns - 1))
         return this.#cells[randomRow][randomColumn]
     }
+
+    getEdges()
+    {
+        let edges = []
+        for(let i = 0; i < this.#rows; i++)
+        {
+            for(let j = 0; j < this.#columns; j++)
+            {
+                if(!this.isTopEdge(this.#cells[i][j]))
+                {
+                    let edge = {
+                        cell: this.#cells[i][j],
+                        direction: 'Top'
+                    }
+                    edges.push(edge)
+                }
+
+                if(!this.isRightEdge(this.#cells[i][j]))
+                { 
+                    let edge = {
+                        cell: this.#cells[i][j],
+                        direction: 'Right'
+                    }  
+                    edges.push(edge)
+                }
+            }
+        }
+   
+        return edges
+    }
+
+    getSets()
+    {
+        let sets = []
+        for(let i = 0; i < this.#rows; i++)
+        {
+            let row = []
+            for(let j = 0; j < this.#columns; j++)
+            {
+                let set = `${i}${j}`
+                console.log(set)
+                row.push(set)
+            }
+            sets.push(row)
+        }
+        return sets
+    }
 }

@@ -83,6 +83,7 @@ class Cell {
     drawWhite()
     {
         this.#cell.style.backgroundColor = 'white'
+        //this.#cell.className = 'explored-node'
     }
 
 
