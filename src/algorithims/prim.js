@@ -1,4 +1,6 @@
-class Prim{
+import { Features } from "../features"
+
+export class Prim {
 
     #getAdyacentCells(grid, cell)
     {

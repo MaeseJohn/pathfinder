@@ -1,4 +1,4 @@
-class Cell {
+export class Cell {
 
     #row
     #column

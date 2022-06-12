@@ -1,4 +1,6 @@
-class Depthfirst {
+import { Features } from "../features"
+
+export class Depthfirst {
 
     async generateMaze(grid)
     {

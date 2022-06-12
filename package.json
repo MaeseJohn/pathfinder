@@ -1,0 +1,15 @@
+{
+  "name": "pathfinding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html -p 8080",
+    "dev2": "npx parcel index.html -p 8080"
+  },
+  "author": "Jonathan Santos",
+  "license": "ISC",
+  "dependencies": {
+    "@manubb/union-find": "^1.0.2"
+  }
+}

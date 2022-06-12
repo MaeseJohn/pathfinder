@@ -1,4 +1,7 @@
-class Grid {
+import { Cell } from './cell'
+import { makeSet, find, union } from '@manubb/union-find'
+
+export class Grid {
 
     #rows
     #columns
@@ -36,6 +39,11 @@ class Grid {
 
             this.#cells.push(rows)
         }
+
+        let set = makeSet()
+        console.log(set)
+        let set2 = makeSet()
+        console.log(set2)
     }
 
     // Calculate the size of the sides to generate square cells

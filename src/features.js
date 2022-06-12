@@ -1,4 +1,9 @@
-class Features {
+import { Depthfirst } from "./algorithims/depthfirst"
+import { Prim } from "./algorithims/prim"
+import { Kruskal } from "./algorithims/kruskal"
+
+
+export class Features {
 
     static #selectAlgorithim()
     {

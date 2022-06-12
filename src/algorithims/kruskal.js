@@ -1,4 +1,7 @@
-class Kruskal {
+import { Features } from "../features"
+import { makeSet, find, union } from '@manubb/union-find'
+
+export class Kruskal {
 
     #equalSet(current, next, sets)
     {

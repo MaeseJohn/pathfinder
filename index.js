@@ -1,3 +1,6 @@
+import { Grid } from './src/grid'
+import { Features } from './src/features'
+
 const CREATE_BUTTON = document.getElementById('create')
 
 let grid
