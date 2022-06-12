@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Path Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/navbar.css">
+    <link rel="stylesheet" href="assets/grid.css">
+</head>
+<body>
+    
+    <!--NAVBAR-->
+    <nav id="navbar">
+        <div class="logo">Path Finding Visualizer</div>
+        <ul>
+            <li>
+                <a href="#" class="projective">Size:</a>
+                <input type="text" id="heigth">
+                <input type="text" id="width">       
+            </li>
+            <li>
+                <a href="#" class="create button" id="create">Create grid</a> 
+            </li>
+            <li>
+                <a href="#" class="projective">Randomizer:</a>
+
+                <select name="randomicers" id="randomizerAlgorithim">
+                    <option value="0">Depth-first</option>
+                    <option value="1">Prim's</option>
+                </select>
+            </li>
+            <li>
+                <a href="#" class="projective">Speed:</a>
+                <select name="randomizerspeed" id="randomizerspeed">
+                    <option value="0">Instant</option>
+                    <option value="1">Quick</option>
+                    <option value="2">Average</option>
+                    <option value="3">Slow</option>
+                </select>
+            </li>
+            <li>
+                <a href="#" class="run button" id="mazerun">Run</a>
+            </li>
+            <li>
+                <a href="#" class="projective">Pathfinder:</a>
+               
+                <select name="pathfinders" id="pathfinders">
+                <option value="tr">Tail Recursion</option>
+                <option value="di">Dijkstra's algorithm</option>
+                <option value="re">Recursion</option>
+                </select>
+            </li>
+            <li>
+                <a href="#" class="projective">Time:</a>
+                <input type="text" id="pathfindertimer">
+            </li>
+            <li>
+                <a href="#" class="run button" id="pathrun">Run</a>
+                <a href="#" class="clear button" id="clear">Clear</a>
+            </li> 
+        </ul>
+    </nav>
+
+    <!--GRID-->
+    <table id="grid"></table>
+
+    <script src="cell.js"></script>
+    <script src="grid.js"></script> 
+    <script src="features.js"></script>
+    <script src="prims.js"></script>
+    <script src="depthfirst.js"></script>
+    <script src="index.js"></script>   
+</body>
+</html>
