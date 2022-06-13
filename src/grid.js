@@ -1,5 +1,5 @@
 import { Cell } from './cell'
-import { makeSet, find, union } from '@manubb/union-find'
+import { makeSet } from '@manubb/union-find'
 
 export class Grid {
 
@@ -39,11 +39,6 @@ export class Grid {
 
             this.#cells.push(rows)
         }
-
-        let set = makeSet()
-        console.log(set)
-        let set2 = makeSet()
-        console.log(set2)
     }
 
     // Calculate the size of the sides to generate square cells
@@ -171,8 +166,8 @@ export class Grid {
             let row = []
             for(let j = 0; j < this.#columns; j++)
             {
-                let set = `${i}${j}`
-                console.log(set)
+                let set = makeSet()
+                set.rank = `${i}${j}`
                 row.push(set)
             }
             sets.push(row)

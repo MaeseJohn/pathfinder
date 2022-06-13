@@ -1,38 +1,31 @@
 import { Features } from "../features"
-import { makeSet, find, union } from '@manubb/union-find'
+import { find, union } from '@manubb/union-find'
 
 export class Kruskal {
-
-    #equalSet(current, next, sets)
-    {
-        let currentSet = sets[current.getRow()][current.getColumn()]
-        let nextSet    = sets[next.getRow()][next.getColumn()]
-
-        return currentSet == nextSet
-    }
-
-    #mergeSets(current, next, sets)
-    {
-        let currentSet = sets[current.getRow()][current.getColumn()] 
-        sets[next.getRow()][next.getColumn()] = currentSet
-    }
 
     async generateMaze(grid)
     {
         let edges = grid.getEdges()
         let sets  = grid.getSets()
 
+        const speed = document.getElementById('randomizerspeed').value
+
         while(edges.length > 0)
         {
             let random = Math.round(Math.random() * (edges.length - 1))
             let current = edges[random]
-            console.log(current)
             let next = current.direction == 'Top' ? grid.getTopCell(current.cell) : grid.getRightCell(current.cell)
+
+            let currentSet = sets[current.cell.getRow()][current.cell.getColumn()]
+            let nextSet    = sets[next.getRow()][next.getColumn()]
+
+            console.log(currentSet)
+            console.log(nextSet)
+            console.log(find(currentSet) === find(nextSet))
            
-            if(!this.#equalSet(current.cell, next, sets))
-            {
+            if(!(find(currentSet) === find(nextSet)))
+            {   
                 console.log('hola')
-                
                 if(current.direction == 'Top')
                 {
                     current.cell.removeTopWall()
@@ -44,10 +37,13 @@ export class Kruskal {
                     current.cell.removeRightWall()
                     next.removeLeftWall()
                 }
+                current.cell.drawWhite()
+                next.drawWhite()
 
-                this.#mergeSets(current.cell, next, sets)
+                union(currentSet, nextSet)
             }
             edges.splice(random,1)
+            await Features.delay(speed)
         }
     }
 
