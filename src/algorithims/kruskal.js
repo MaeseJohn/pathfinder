@@ -14,14 +14,25 @@ export class Kruskal {
         {
             let random = Math.round(Math.random() * (edges.length - 1))
             let current = edges[random]
-            let next = current.direction == 'Top' ? grid.getTopCell(current.cell) : grid.getRightCell(current.cell)
+            let next
 
+            if(current.direction == 'Top')
+            {
+                next = grid.getTopCell(current.cell)
+                current.cell.drawTopWallRed()
+                next.drawBotWallRed()
+            }
+            else if(current.direction == 'Right')
+            {
+                next = grid.getRightCell(current.cell)
+                current.cell.drawRightWallRed()
+                next.drawLeftWallRed()
+            }
+
+            await Features.delay(speed)
+            
             let currentSet = sets[current.cell.getRow()][current.cell.getColumn()]
             let nextSet    = sets[next.getRow()][next.getColumn()]
-
-            console.log(currentSet)
-            console.log(nextSet)
-            console.log(find(currentSet) === find(nextSet))
            
             if(!(find(currentSet) === find(nextSet)))
             {   
@@ -42,8 +53,13 @@ export class Kruskal {
 
                 union(currentSet, nextSet)
             }
+            else
+            {
+                current.cell.updateWallsColor()
+                next.updateWallsColor()
+            }
+            
             edges.splice(random,1)
-            await Features.delay(speed)
         }
     }
 

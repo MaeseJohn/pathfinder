@@ -26,48 +26,40 @@ export class Cell {
     removeLeftWall()
     {
         this.#leftwall = false
-        this.#updateCellStyle()
+        this.#updateWallsStyle()
     }
 
     removeRightWall()
     {
         this.#rightwall = false
-        this.#updateCellStyle()
+        this.#updateWallsStyle()
     }
 
     removeBotWall()
     {
         this.#botwall = false
-        this.#updateCellStyle()
+        this.#updateWallsStyle()
     }
 
     removeTopWall()
     {
         this.#topwall = false
-        this.#updateCellStyle()
+        this.#updateWallsStyle()
     }
 
-    #updateCellStyle()
+    #updateWallsStyle()
     {
-        //Undraw walls
-        let top   = this.#topwall   ? 'black' : 'white'
-        let right = this.#rightwall ? 'black' : 'white'
-        let bot   = this.#botwall   ? 'black' : 'white'
-        let left  = this.#leftwall  ? 'black' : 'white'
-
-        this.#cell.style.borderColor = `${top} ${right} ${bot} ${left}`
-
+        this.updateWallsColor()
 
         //Putting dashed for undraw walls cuz hidden or none colapse the cells
         //and change his size
-        top   = this.#topwall   ? 'solid' : 'dashed'
-        right = this.#rightwall ? 'solid' : 'dashed'
-        bot   = this.#botwall   ? 'solid' : 'dashed'
-        left  = this.#leftwall  ? 'solid' : 'dashed'
+        let top   = this.#topwall   ? 'solid' : 'dashed'
+        let right = this.#rightwall ? 'solid' : 'dashed'
+        let bot   = this.#botwall   ? 'solid' : 'dashed'
+        let left  = this.#leftwall  ? 'solid' : 'dashed'
 
         this.#cell.style.borderStyle = `${top} ${right} ${bot} ${left}`
     }
-
 
     //ColorManage
     drawGreen()
@@ -84,6 +76,50 @@ export class Cell {
     {
         this.#cell.style.backgroundColor = 'white'
         //this.#cell.className = 'explored-node'
+    }
+
+   //Wall color manage
+   #getWallsColor()
+    {
+        let wallColor = {
+            top: '',
+            right:'',
+            bot:'',
+            left:''
+        }
+        wallColor.top   = this.#topwall   ? 'black' : 'white'
+        wallColor.right = this.#rightwall ? 'black' : 'white'
+        wallColor.bot   = this.#botwall   ? 'black' : 'white'
+        wallColor.left  = this.#leftwall  ? 'black' : 'white'
+        
+        return wallColor
+    }
+
+    updateWallsColor()
+    {
+        let wallColor = this.#getWallsColor()
+        this.#cell.style.borderColor = `${wallColor.top}  ${wallColor.right} ${wallColor.bot} ${wallColor.left}` 
+    }
+
+    drawTopWallRed()
+    {
+        let wallColor = this.#getWallsColor()
+        this.#cell.style.borderColor = `red  ${wallColor.right} ${wallColor.bot} ${wallColor.left}`
+    }
+    drawRightWallRed()
+    {
+        let wallColor = this.#getWallsColor()
+        this.#cell.style.borderColor = `${wallColor.top} red ${wallColor.bot} ${wallColor.left}`
+    }
+    drawBotWallRed()
+    {
+        let wallColor = this.#getWallsColor()
+        this.#cell.style.borderColor = `${wallColor.top} ${wallColor.right} red ${wallColor.left}`
+    }
+    drawLeftWallRed()
+    {
+        let wallColor = this.#getWallsColor()
+        this.#cell.style.borderColor = `${wallColor.top} ${wallColor.right} ${wallColor.bot} red`
     }
 
 
