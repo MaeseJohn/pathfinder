@@ -41,7 +41,7 @@ export class Depthfirst {
                                 next.removeBotWall()
                                 
                                 current.drawBlue()
-                                next.drawGreen()
+                                next.drawViolet()
                             }
                         }
                     break;
@@ -62,7 +62,7 @@ export class Depthfirst {
                                 next.removeLeftWall()
 
                                 current.drawBlue()
-                                next.drawGreen()
+                                next.drawViolet()
                             }
                         }
                     break;
@@ -83,7 +83,7 @@ export class Depthfirst {
                                 next.removeTopWall()
 
                                 current.drawBlue()
-                                next.drawGreen()
+                                next.drawViolet()
                             }
                         }
                     break;
@@ -104,7 +104,7 @@ export class Depthfirst {
                                 next.removeRightWall()
                                 
                                 current.drawBlue()
-                                next.drawGreen()
+                                next.drawViolet()
                             }
                         }
                     break;
@@ -117,11 +117,12 @@ export class Depthfirst {
                 
                 if(stack.length > 0)
                 {
-                    stack[stack.length - 1].drawGreen()
+                    stack[stack.length - 1].drawViolet()
                 }
             }
 
             await Features.delay(speed)
         }
+        grid.setDefaultBeginGoalCells()
     }
 }

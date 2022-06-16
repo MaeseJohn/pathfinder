@@ -119,6 +119,7 @@ export class Prim {
             
             await Features.delay(speed)
         }
+        grid.setDefaultBeginGoalCells()
     }
 }
 

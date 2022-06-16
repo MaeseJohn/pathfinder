@@ -62,9 +62,19 @@ export class Cell {
     }
 
     //ColorManage
+    drawViolet()
+    {
+        this.#cell.style.backgroundColor = '#af7ac5'
+    }
+
     drawGreen()
     {
         this.#cell.style.backgroundColor = '#52be80'
+    }
+
+    drawRed()
+    {
+        this.#cell.style.backgroundColor = '#ff1800'
     }
 
     drawBlue()
@@ -136,6 +146,12 @@ export class Cell {
     getRow()
     {
         return this.#row
+    }
+
+    //SETTERS
+    setDraggable(bool)
+    {
+        this.#cell.draggable = bool
     }
   
 }

@@ -6,10 +6,13 @@ export class Grid {
     #rows
     #columns
     #cells = []
+    #beginCell
+    #goalCell
     constructor(rows, columns)
     {
         this.#rows    = rows
         this.#columns = columns
+
     }
 
     makeGrid()
@@ -128,6 +131,16 @@ export class Grid {
         return this.#cells[randomRow][randomColumn]
     }
 
+    getBeginCell()
+    {
+        return this.#beginCell
+    }
+
+    getGoalCell()
+    {
+        return this.#goalCell
+    }
+
     getEdges()
     {
         let edges = []
@@ -173,5 +186,76 @@ export class Grid {
             sets.push(row)
         }
         return sets
+    }
+
+    //SETTERS
+    setBeginCell(cell)
+    {
+        this.#beginCell = cell
+        this.#beginCell.drawGreen()
+    }
+
+    setGoalCell(cell)
+    {
+        this.#goalCell = cell
+        this.#goalCell.drawRed()
+    }
+
+    setDefaultBeginGoalCells()
+    {
+        //Default settings
+        this.#beginCell = this.#cells[0][0]
+        this.#goalCell = this.#cells[this.#rows - 1][this.#columns - 1]
+
+        this.#beginCell.drawGreen()
+        this.#goalCell.drawRed()
+
+        this.#beginCell.setDraggable(true)
+        this.#goalCell.setDraggable(true)
+
+        const cells = document.querySelectorAll('td')
+
+        cells.forEach(cell => {
+            
+            cell.addEventListener('dragstart', () => {
+                if(cell.draggable)
+                {
+                    cell.classList.add('dragging')
+                }
+                console.log(cell)
+            })
+            
+            cell.addEventListener('dragend', () => {
+                cell.classList.remove('dragging')
+            })
+
+            cell.addEventListener('dragover', e => { 
+                e.preventDefault()  
+            })
+
+            cell.addEventListener('dragleave', () => {
+                if(!cell.draggable)
+                {
+                    cell.style.backgroundColor = 'white'
+                }
+            })
+
+            cell.addEventListener('drop', e => {
+
+                if(e.target.draggable)
+                {
+                    return
+                }
+
+                let draggable = document.querySelector('.dragging')
+                
+                cell.style.backgroundColor = draggable.style.backgroundColor
+                cell.draggable = true
+            
+                draggable.style.backgroundColor = 'white'
+                draggable.draggable = false
+            })
+        })
+
     }
 }

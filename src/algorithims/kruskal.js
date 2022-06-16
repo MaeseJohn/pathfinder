@@ -36,7 +36,6 @@ export class Kruskal {
            
             if(!(find(currentSet) === find(nextSet)))
             {   
-                console.log('hola')
                 if(current.direction == 'Top')
                 {
                     current.cell.removeTopWall()
@@ -44,7 +43,6 @@ export class Kruskal {
                 }
                 else
                 {
-                    console.log('putocarlos')
                     current.cell.removeRightWall()
                     next.removeLeftWall()
                 }
@@ -61,6 +59,7 @@ export class Kruskal {
             
             edges.splice(random,1)
         }
+        grid.setDefaultBeginGoalCells()
     }
 
 }
