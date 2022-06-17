@@ -32,6 +32,12 @@ export class Utils {
         algorithim.generateMaze(grid)
     }
 
+    static solveMaze(grid)
+    {
+        let algorithim = new Depthfirst()
+        algorithim.solveMaze(grid)
+    }
+
     static delay(selectvalue)
     {
         let ms

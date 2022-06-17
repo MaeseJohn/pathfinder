@@ -125,4 +125,82 @@ export class Depthfirst {
         }
         grid.setDefaultBeginGoalCells()
     }
+
+    async solveMaze(grid)
+    {
+        let stack = []
+        let map = new Map()
+
+        const goalCell = grid.getGoalCell()
+        const beginCell = grid.getBeginCell()
+        beginCell.visited  = false
+        stack.push(beginCell)
+
+        const speed = document.getElementById('randomizerspeed').value
+
+        while(stack.length > 0)
+        {
+            let current = stack.pop()
+            let next
+            
+
+            if(!current.equals(beginCell) && !current.equals(goalCell))
+            {
+                current.drawOrange()
+            }
+
+            if(current.equals(goalCell))
+            {
+                current.drawRed()
+                break 
+            }
+            
+            if(!current.getTopWall() && grid.getTopCell(current).visited)
+            {
+                next = grid.getTopCell(current)
+                stack.push(next) 
+                next.drawYellow() 
+                next.visited = false
+                map.set(`${next.getRow()}-${next.getColumn()}`, current)
+            }
+
+            if(!current.getRightWall() && grid.getRightCell(current).visited)
+            { 
+                next = grid.getRightCell(current)
+                stack.push(next) 
+                next.drawYellow()
+                next.visited = false
+                map.set(`${next.getRow()}-${next.getColumn()}`, current)
+            }
+
+            if(!current.getBotWall() && grid.getBotCell(current).visited)   
+            {
+                next = grid.getBotCell(current)
+                stack.push(next)
+                next.drawYellow()
+                next.visited = false
+                map.set(`${next.getRow()}-${next.getColumn()}`, current)
+            }
+
+            if(!current.getLeftWall() && grid.getLeftCell(current).visited)  
+            { 
+                next = grid.getLeftCell(current)
+                stack.push(next)
+                next.drawYellow()
+                next.visited = false
+                map.set(`${next.getRow()}-${next.getColumn()}`, current) 
+            }
+
+            await Utils.delay(speed)
+        }
+
+        let pathColor = goalCell
+        
+        while(!pathColor.equals(beginCell))
+        {
+            pathColor.drawViolet()
+            pathColor = map.get(`${pathColor.getRow()}-${pathColor.getColumn()}`)
+            await Utils.delay(speed)
+        }
+    }
 }

@@ -3,10 +3,10 @@ export class Cell {
     #row
     #column
     #cell
-    #topwall
-    #rightwall
-    #botwall
-    #leftwall
+    #topWall
+    #rightWall
+    #botWall
+    #leftWall
 
     constructor(row, column, cell)
     {
@@ -16,34 +16,34 @@ export class Cell {
 
         this.visited = false
 
-        this.#topwall   = true
-        this.#rightwall = true
-        this.#botwall   = true
-        this.#leftwall  = true   
+        this.#topWall   = true
+        this.#rightWall = true
+        this.#botWall   = true
+        this.#leftWall  = true   
     }
 
     //WallRemovers
     removeLeftWall()
     {
-        this.#leftwall = false
+        this.#leftWall = false
         this.#updateWallsStyle()
     }
 
     removeRightWall()
     {
-        this.#rightwall = false
+        this.#rightWall = false
         this.#updateWallsStyle()
     }
 
     removeBotWall()
     {
-        this.#botwall = false
+        this.#botWall = false
         this.#updateWallsStyle()
     }
 
     removeTopWall()
     {
-        this.#topwall = false
+        this.#topWall = false
         this.#updateWallsStyle()
     }
 
@@ -53,10 +53,10 @@ export class Cell {
 
         //Putting dashed for undraw walls cuz hidden or none colapse the cells
         //and change his size
-        let top   = this.#topwall   ? 'solid' : 'dashed'
-        let right = this.#rightwall ? 'solid' : 'dashed'
-        let bot   = this.#botwall   ? 'solid' : 'dashed'
-        let left  = this.#leftwall  ? 'solid' : 'dashed'
+        let top   = this.#topWall   ? 'solid' : 'dashed'
+        let right = this.#rightWall ? 'solid' : 'dashed'
+        let bot   = this.#botWall   ? 'solid' : 'dashed'
+        let left  = this.#leftWall  ? 'solid' : 'dashed'
 
         this.#cell.style.borderStyle = `${top} ${right} ${bot} ${left}`
     }
@@ -85,7 +85,16 @@ export class Cell {
     drawWhite()
     {
         this.#cell.style.backgroundColor = 'white'
-        //this.#cell.className = 'explored-node'
+    }
+
+    drawOrange()
+    {
+        this.#cell.style.backgroundColor = 'orange'
+    }
+
+    drawYellow()
+    {
+        this.#cell.style.backgroundColor = 'yellow'
     }
 
    //Wall color manage
@@ -97,10 +106,10 @@ export class Cell {
             bot:'',
             left:''
         }
-        wallColor.top   = this.#topwall   ? 'black' : 'white'
-        wallColor.right = this.#rightwall ? 'black' : 'white'
-        wallColor.bot   = this.#botwall   ? 'black' : 'white'
-        wallColor.left  = this.#leftwall  ? 'black' : 'white'
+        wallColor.top   = this.#topWall   ? 'black' : 'white'
+        wallColor.right = this.#rightWall ? 'black' : 'white'
+        wallColor.bot   = this.#botWall   ? 'black' : 'white'
+        wallColor.left  = this.#leftWall  ? 'black' : 'white'
         
         return wallColor
     }
@@ -146,6 +155,26 @@ export class Cell {
     getRow()
     {
         return this.#row
+    }
+
+    getTopWall()
+    {
+        return this.#topWall
+    }
+
+    getRightWall()
+    {
+        return this.#rightWall
+    }
+
+    getBotWall()
+    {
+        return this.#botWall
+    }
+
+    getLeftWall()
+    {
+        return this.#leftWall
     }
 
     //SETTERS
