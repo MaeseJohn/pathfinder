@@ -1,4 +1,4 @@
-import { Features } from "../features"
+import { Utils } from "../Utils"
 
 export class Prim {
 
@@ -117,7 +117,7 @@ export class Prim {
             cellsArray[randomCell].drawWhite()
             cellsArray.splice(randomCell,1)
             
-            await Features.delay(speed)
+            await Utils.delay(speed)
         }
         grid.setDefaultBeginGoalCells()
     }

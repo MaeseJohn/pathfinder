@@ -1,4 +1,4 @@
-import { Features } from "../features"
+import { Utils } from "../Utils"
 
 export class Depthfirst {
 
@@ -121,7 +121,7 @@ export class Depthfirst {
                 }
             }
 
-            await Features.delay(speed)
+            await Utils.delay(speed)
         }
         grid.setDefaultBeginGoalCells()
     }

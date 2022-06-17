@@ -1,4 +1,4 @@
-import { Features } from "../features"
+import { Utils } from "../Utils"
 import { find, union } from '@manubb/union-find'
 
 export class Kruskal {
@@ -29,7 +29,7 @@ export class Kruskal {
                 next.drawLeftWallRed()
             }
 
-            await Features.delay(speed)
+            await Utils.delay(speed)
             
             let currentSet = sets[current.cell.getRow()][current.cell.getColumn()]
             let nextSet    = sets[next.getRow()][next.getColumn()]

@@ -3,7 +3,7 @@ import { Prim } from "./algorithims/prim"
 import { Kruskal } from "./algorithims/kruskal"
 
 
-export class Features {
+export class Utils {
 
     static #selectAlgorithim()
     {
@@ -28,7 +28,7 @@ export class Features {
 
     static generateMaze(grid)
     {
-        let algorithim = Features.#selectAlgorithim()
+        let algorithim = Utils.#selectAlgorithim()
         algorithim.generateMaze(grid)
     }
 

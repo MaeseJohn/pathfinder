@@ -1,5 +1,5 @@
 import { Grid } from './src/grid'
-import { Features } from './src/features'
+import { Utils } from './src/Utils'
 
 let grid
 const MAZE_RANDOMIZER_BUTTON = document.getElementById('mazerun')
@@ -16,7 +16,7 @@ MAZE_RANDOMIZER_BUTTON.onclick = function()
     grid = new Grid(gridHeight, gridWidth)
     grid.makeGrid()
     
-    Features.generateMaze(grid)
+    Utils.generateMaze(grid)
 }
 
 
