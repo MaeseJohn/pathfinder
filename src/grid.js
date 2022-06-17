@@ -189,13 +189,13 @@ export class Grid {
     }
 
     //SETTERS
-    setBeginCell(cell)
+    #setBeginCell(cell)
     {
         this.#beginCell = cell
         this.#beginCell.drawGreen()
     }
 
-    setGoalCell(cell)
+    #setGoalCell(cell)
     {
         this.#goalCell = cell
         this.#goalCell.drawRed()
@@ -222,7 +222,6 @@ export class Grid {
                 {
                     cell.classList.add('dragging')
                 }
-                console.log(cell)
             })
             
             cell.addEventListener('dragend', () => {
@@ -233,13 +232,6 @@ export class Grid {
                 e.preventDefault()  
             })
 
-            cell.addEventListener('dragleave', () => {
-                if(!cell.draggable)
-                {
-                    cell.style.backgroundColor = 'white'
-                }
-            })
-
             cell.addEventListener('drop', e => {
 
                 if(e.target.draggable)
@@ -247,13 +239,21 @@ export class Grid {
                     return
                 }
 
+
+                //Change xml elements for cell class
                 let draggable = document.querySelector('.dragging')
+                let draggableCell = this.#cells[draggable.parentElement.rowIndex][draggable.cellIndex]
+                let myCell = this.#cells[cell.parentElement.rowIndex][cell.cellIndex]
                 
-                cell.style.backgroundColor = draggable.style.backgroundColor
-                cell.draggable = true
-            
-                draggable.style.backgroundColor = 'white'
-                draggable.draggable = false
+                //Printing color
+                draggableCell.equals(this.#beginCell) ? this.#setBeginCell(myCell) : this.#setGoalCell(myCell)
+                draggableCell.drawWhite()
+
+                //Setting dragable
+                myCell.setDraggable(true)
+                draggableCell.setDraggable(false)
+                
+
             })
         })
 
