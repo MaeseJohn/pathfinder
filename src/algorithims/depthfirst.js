@@ -126,23 +126,62 @@ export class Depthfirst {
         grid.setDefaultBeginGoalCells()
     }
 
+    
+    #pushAsPotentialNextCell(frontier, explored, current, next, map)
+    {
+        if(!explored.includes(next))
+        {
+            frontier.push(next)
+            explored.push(next)
+            next.drawYellow()
+            map.set(`${next.getRow()}-${next.getColumn()}`, current)
+        }
+    }
+    #processAdjacents(grid, frontier, explored, current, map)
+    {
+        let next 
+
+        if(!current.getTopWall())
+        {
+            next = grid.getTopCell(current)
+            this.#pushAsPotentialNextCell(frontier, explored, current, next, map)
+        }
+
+        if(!current.getRightWall())
+        { 
+            next = grid.getRightCell(current)
+            this.#pushAsPotentialNextCell(frontier, explored, current, next, map)
+        }
+
+        if(!current.getBotWall())   
+        {
+            next = grid.getBotCell(current)
+            this.#pushAsPotentialNextCell(frontier, explored, current, next, map)
+        }
+
+        if(!current.getLeftWall())  
+        { 
+            next = grid.getLeftCell(current)
+            this.#pushAsPotentialNextCell(frontier, explored, current, next, map) 
+        }
+    }
+
     async solveMaze(grid)
     {
-        let stack = []
+        let explored = []
+        let frontier = []
         let map = new Map()
 
         const goalCell = grid.getGoalCell()
         const beginCell = grid.getBeginCell()
-        beginCell.visited  = false
-        stack.push(beginCell)
+        explored.push(beginCell)
+        frontier.push(beginCell)
 
         const speed = document.getElementById('randomizerspeed').value
 
-        while(stack.length > 0)
+        while(frontier.length > 0)
         {
-            let current = stack.pop()
-            let next
-            
+            let current = frontier.pop()
 
             if(!current.equals(beginCell) && !current.equals(goalCell))
             {
@@ -154,52 +193,18 @@ export class Depthfirst {
                 current.drawRed()
                 break 
             }
-            
-            if(!current.getTopWall() && grid.getTopCell(current).visited)
-            {
-                next = grid.getTopCell(current)
-                stack.push(next) 
-                next.drawYellow() 
-                next.visited = false
-                map.set(`${next.getRow()}-${next.getColumn()}`, current)
-            }
 
-            if(!current.getRightWall() && grid.getRightCell(current).visited)
-            { 
-                next = grid.getRightCell(current)
-                stack.push(next) 
-                next.drawYellow()
-                next.visited = false
-                map.set(`${next.getRow()}-${next.getColumn()}`, current)
-            }
-
-            if(!current.getBotWall() && grid.getBotCell(current).visited)   
-            {
-                next = grid.getBotCell(current)
-                stack.push(next)
-                next.drawYellow()
-                next.visited = false
-                map.set(`${next.getRow()}-${next.getColumn()}`, current)
-            }
-
-            if(!current.getLeftWall() && grid.getLeftCell(current).visited)  
-            { 
-                next = grid.getLeftCell(current)
-                stack.push(next)
-                next.drawYellow()
-                next.visited = false
-                map.set(`${next.getRow()}-${next.getColumn()}`, current) 
-            }
-
+            this.#processAdjacents(grid, frontier, explored, current, map)
             await Utils.delay(speed)
         }
 
-        let pathColor = goalCell
+        let pathColor = map.get(`${goalCell.getRow()}-${goalCell.getColumn()}`)
         
         while(!pathColor.equals(beginCell))
         {
             pathColor.drawViolet()
             pathColor = map.get(`${pathColor.getRow()}-${pathColor.getColumn()}`)
+
             await Utils.delay(speed)
         }
     }
