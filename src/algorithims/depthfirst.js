@@ -166,6 +166,19 @@ export class Depthfirst {
         }
     }
 
+    async #drawPath(beginCell, goalCell, map, speed)
+    {
+        let pathColor = map.get(`${goalCell.getRow()}-${goalCell.getColumn()}`)
+        
+        while(!pathColor.equals(beginCell))
+        {
+            pathColor.drawViolet()
+            pathColor = map.get(`${pathColor.getRow()}-${pathColor.getColumn()}`)
+
+            await Utils.delay(speed)
+        }
+    }
+
     async solveMaze(grid)
     {
         let explored = []
@@ -198,14 +211,6 @@ export class Depthfirst {
             await Utils.delay(speed)
         }
 
-        let pathColor = map.get(`${goalCell.getRow()}-${goalCell.getColumn()}`)
-        
-        while(!pathColor.equals(beginCell))
-        {
-            pathColor.drawViolet()
-            pathColor = map.get(`${pathColor.getRow()}-${pathColor.getColumn()}`)
-
-            await Utils.delay(speed)
-        }
+        this.#drawPath(beginCell, goalCell, map, speed)
     }
 }
