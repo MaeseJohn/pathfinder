@@ -9,6 +9,7 @@
   "author": "Jonathan Santos",
   "license": "ISC",
   "dependencies": {
+    "@datastructures-js/queue": "^4.2.1",
     "@manubb/union-find": "^1.0.2"
   }
 }

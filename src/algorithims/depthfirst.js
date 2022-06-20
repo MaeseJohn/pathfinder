@@ -127,42 +127,42 @@ export class Depthfirst {
     }
 
     
-    #pushAsPotentialNextCell(frontier, explored, current, next, map)
+    #pushAsPotentialNextCell(stack, explored, current, next, map)
     {
         if(!explored.includes(next))
         {
-            frontier.push(next)
+            stack.push(next)
             explored.push(next)
             next.drawYellow()
             map.set(`${next.getRow()}-${next.getColumn()}`, current)
         }
     }
-    #processAdjacents(grid, frontier, explored, current, map)
+    #processAdjacents(grid, stack, explored, current, map)
     {
         let next 
 
         if(!current.getTopWall())
         {
             next = grid.getTopCell(current)
-            this.#pushAsPotentialNextCell(frontier, explored, current, next, map)
+            this.#pushAsPotentialNextCell(stack, explored, current, next, map)
         }
 
         if(!current.getRightWall())
         { 
             next = grid.getRightCell(current)
-            this.#pushAsPotentialNextCell(frontier, explored, current, next, map)
+            this.#pushAsPotentialNextCell(stack, explored, current, next, map)
         }
 
         if(!current.getBotWall())   
         {
             next = grid.getBotCell(current)
-            this.#pushAsPotentialNextCell(frontier, explored, current, next, map)
+            this.#pushAsPotentialNextCell(stack, explored, current, next, map)
         }
 
         if(!current.getLeftWall())  
         { 
             next = grid.getLeftCell(current)
-            this.#pushAsPotentialNextCell(frontier, explored, current, next, map) 
+            this.#pushAsPotentialNextCell(stack, explored, current, next, map) 
         }
     }
 
@@ -182,19 +182,21 @@ export class Depthfirst {
     async solveMaze(grid)
     {
         let explored = []
-        let frontier = []
+        
+        //Using stack array like a stack
+        let stack = []
         let map = new Map()
 
         const goalCell = grid.getGoalCell()
         const beginCell = grid.getBeginCell()
         explored.push(beginCell)
-        frontier.push(beginCell)
+        stack.push(beginCell)
 
         const speed = document.getElementById('randomizerspeed').value
 
-        while(frontier.length > 0)
+        while(stack.length > 0)
         {
-            let current = frontier.pop()
+            let current = stack.pop()
 
             if(!current.equals(beginCell) && !current.equals(goalCell))
             {
@@ -207,7 +209,7 @@ export class Depthfirst {
                 break 
             }
 
-            this.#processAdjacents(grid, frontier, explored, current, map)
+            this.#processAdjacents(grid, stack, explored, current, map)
             await Utils.delay(speed)
         }
 

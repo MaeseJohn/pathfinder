@@ -1,6 +1,7 @@
 import { Depthfirst } from "./algorithims/depthfirst"
 import { Prim } from "./algorithims/prim"
 import { Kruskal } from "./algorithims/kruskal"
+import { Breadthfirst } from "./algorithims/breadthfirst" 
 
 
 export class Utils {
@@ -34,7 +35,7 @@ export class Utils {
 
     static solveMaze(grid)
     {
-        let algorithim = new Depthfirst()
+        let algorithim = new Breadthfirst()
         algorithim.solveMaze(grid)
     }
 
