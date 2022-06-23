@@ -2,6 +2,38 @@ import { Utils } from "../Utils"
 
 export class Depthfirst {
 
+
+    #drawMovement(direction, current, next, stack)
+    { 
+        switch(direction)
+        {
+            case 'top':
+                current.removeTopWall()
+                next.removeBottomWall()
+            break;
+            
+            case 'right':
+                current.removeRightWall()
+                next.removeLeftWall()
+            break;
+
+            case 'bottom':
+                current.removeBottomWall()
+                next.removeTopWall()
+            break;
+
+            case 'left':
+                current.removeLeftWall()
+                next.removeRightWall()
+            break;
+        }
+
+        next.visited = true
+        stack.push(next)
+        current.drawBlue()
+        next.drawViolet()      
+    }
+
     async generateMaze(grid)
     {
         let stack = []
@@ -22,7 +54,6 @@ export class Depthfirst {
             {
                 checks++
                 let direction = Math.round(Math.random() * 4)
-                
                 switch(direction)
                 {
                     // UP
@@ -30,85 +61,52 @@ export class Depthfirst {
                         if(!grid.isTopEdge(current))
                         {
                             let next = grid.getTopCell(current)
-                            
                             if(!next.visited)
                             {
-                                valid        = true
-                                next.visited = true
-                
-                                stack.push(next)
-                                current.removeTopWall()
-                                next.removeBotWall()
-                                
-                                current.drawBlue()
-                                next.drawViolet()
+                                this.#drawMovement('top', current, next, stack)
+                                valid = true
                             }
+                           
                         }
                     break;
-
                     // RIGHT
                     case 1:
                         if(!grid.isRightEdge(current))
                         {
                             let next = grid.getRightCell(current)
-    
                             if(!next.visited)
                             {
-                                valid        = true
-                                next.visited = true
-
-                                stack.push(next)
-                                current.removeRightWall()
-                                next.removeLeftWall()
-
-                                current.drawBlue()
-                                next.drawViolet()
+                                this.#drawMovement('right', current, next, stack)
+                                valid = true
                             }
                         }
                     break;
-
-                    // BOT
+                    // BOTTOM
                     case 2:
-                        if(!grid.isBotEdge(current))
+                        if(!grid.isBottomEdge(current))
                         {
-                            let next = grid.getBotCell(current)
-                            
+                            let next = grid.getBottomCell(current)
                             if(!next.visited)
                             {
-                                valid        = true
-                                next.visited = true
-
-                                stack.push(next)
-                                current.removeBotWall()
-                                next.removeTopWall()
-
-                                current.drawBlue()
-                                next.drawViolet()
+                                this.#drawMovement('bottom', current, next, stack)
+                                valid = true
                             }
                         }
                     break;
-
                     // LEFT
                     case 3:
                         if(!grid.isLeftEdge(current))
                         {
                             let next = grid.getLeftCell(current)
-                            
                             if(!next.visited)
                             {
-                                valid        = true
-                                next.visited = true
-
-                                stack.push(next)
-                                current.removeLeftWall()
-                                next.removeRightWall()
-                                
-                                current.drawBlue()
-                                next.drawViolet()
+                                this.#drawMovement('left', current, next, stack)
+                                valid = true
                             }
                         }
                     break;
                 }
+                        
             }
 
             if(!valid)
@@ -126,7 +124,9 @@ export class Depthfirst {
         grid.setDefaultBeginGoalCells()
     }
 
-    
+
+
+    //SOLVE MAZE
     #pushAsPotentialNextCell(stack, explored, current, next, map)
     {
         if(!explored.includes(next))
@@ -153,9 +153,9 @@ export class Depthfirst {
             this.#pushAsPotentialNextCell(stack, explored, current, next, map)
         }
 
-        if(!current.getBotWall())   
+        if(!current.getBottomWall())   
         {
-            next = grid.getBotCell(current)
+            next = grid.getBottomCell(current)
             this.#pushAsPotentialNextCell(stack, explored, current, next, map)
         }
 
@@ -192,7 +192,7 @@ export class Depthfirst {
         explored.push(beginCell)
         stack.push(beginCell)
 
-        const speed = document.getElementById('randomizerspeed').value
+        const speed = document.getElementById('solvespeed').value
 
         while(stack.length > 0)
         {

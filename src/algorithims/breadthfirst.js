@@ -30,9 +30,9 @@ export class Breadthfirst {
             this.#pushAsPotentialNextCell(queue, explored, current, next, map)
         }
 
-        if(!current.getBotWall())   
+        if(!current.getBottomWall())   
         {
-            next = grid.getBotCell(current)
+            next = grid.getBottomCell(current)
             this.#pushAsPotentialNextCell(queue, explored, current, next, map)
         }
 
@@ -67,7 +67,7 @@ export class Breadthfirst {
         explored.push(beginCell)
         queue.enqueue(beginCell)
 
-        const speed = document.getElementById('randomizerspeed').value
+        const speed = document.getElementById('solvespeed').value
 
         while(!queue.isEmpty())
         {

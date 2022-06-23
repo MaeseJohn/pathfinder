@@ -29,6 +29,7 @@ export class AStar {
             this.#getCellScore(next).g = tmpG
             this.#getCellScore(next).f = tmpF
             priorityQueue.enqueue([tmpF, this.#calculateHeuristicCost(next), next])
+            next.drawYellow()
             this.#path.set(`${next.getRow()}-${next.getColumn()}`, current)
         }
     }
@@ -49,9 +50,9 @@ export class AStar {
             this.#checkToEnqueue(current, next, priorityQueue)
         }
 
-        if(!current.getBotWall())   
+        if(!current.getBottomWall())   
         {
-            next = grid.getBotCell(current)
+            next = grid.getBottomCell(current)
             this.#checkToEnqueue(current, next, priorityQueue)
         }
 
@@ -85,7 +86,7 @@ export class AStar {
 
         let priorityQueue = new PriorityQueue(this.#priorityQueueComparator)
 
-        const speed = document.getElementById('randomizerspeed').value
+        const speed = document.getElementById('solvespeed').value
 
         let startF = this.#calculateHeuristicCost(this.#beginCell)
         this.#getCellScore(this.#beginCell).g = 0

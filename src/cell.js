@@ -5,7 +5,7 @@ export class Cell {
     #cell
     #topWall
     #rightWall
-    #botWall
+    #bottomWall
     #leftWall
 
     constructor(row, column, cell)
@@ -18,7 +18,7 @@ export class Cell {
 
         this.#topWall   = true
         this.#rightWall = true
-        this.#botWall   = true
+        this.#bottomWall   = true
         this.#leftWall  = true   
     }
 
@@ -35,9 +35,9 @@ export class Cell {
         this.#updateWallsStyle()
     }
 
-    removeBotWall()
+    removeBottomWall()
     {
-        this.#botWall = false
+        this.#bottomWall = false
         this.#updateWallsStyle()
     }
 
@@ -55,10 +55,10 @@ export class Cell {
         //and change his size
         let top   = this.#topWall   ? 'solid' : 'dashed'
         let right = this.#rightWall ? 'solid' : 'dashed'
-        let bot   = this.#botWall   ? 'solid' : 'dashed'
+        let bottom   = this.#bottomWall   ? 'solid' : 'dashed'
         let left  = this.#leftWall  ? 'solid' : 'dashed'
 
-        this.#cell.style.borderStyle = `${top} ${right} ${bot} ${left}`
+        this.#cell.style.borderStyle = `${top} ${right} ${bottom} ${left}`
     }
 
     //ColorManage
@@ -103,12 +103,12 @@ export class Cell {
         let wallColor = {
             top: '',
             right:'',
-            bot:'',
+            bottom:'',
             left:''
         }
         wallColor.top   = this.#topWall   ? 'black' : 'white'
         wallColor.right = this.#rightWall ? 'black' : 'white'
-        wallColor.bot   = this.#botWall   ? 'black' : 'white'
+        wallColor.bottom   = this.#bottomWall   ? 'black' : 'white'
         wallColor.left  = this.#leftWall  ? 'black' : 'white'
         
         return wallColor
@@ -117,20 +117,20 @@ export class Cell {
     updateWallsColor()
     {
         let wallColor = this.#getWallsColor()
-        this.#cell.style.borderColor = `${wallColor.top}  ${wallColor.right} ${wallColor.bot} ${wallColor.left}` 
+        this.#cell.style.borderColor = `${wallColor.top}  ${wallColor.right} ${wallColor.bottom} ${wallColor.left}` 
     }
 
     drawTopWallRed()
     {
         let wallColor = this.#getWallsColor()
-        this.#cell.style.borderColor = `red  ${wallColor.right} ${wallColor.bot} ${wallColor.left}`
+        this.#cell.style.borderColor = `red  ${wallColor.right} ${wallColor.bottom} ${wallColor.left}`
     }
     drawRightWallRed()
     {
         let wallColor = this.#getWallsColor()
-        this.#cell.style.borderColor = `${wallColor.top} red ${wallColor.bot} ${wallColor.left}`
+        this.#cell.style.borderColor = `${wallColor.top} red ${wallColor.bottom} ${wallColor.left}`
     }
-    drawBotWallRed()
+    drawBottomWallRed()
     {
         let wallColor = this.#getWallsColor()
         this.#cell.style.borderColor = `${wallColor.top} ${wallColor.right} red ${wallColor.left}`
@@ -138,7 +138,7 @@ export class Cell {
     drawLeftWallRed()
     {
         let wallColor = this.#getWallsColor()
-        this.#cell.style.borderColor = `${wallColor.top} ${wallColor.right} ${wallColor.bot} red`
+        this.#cell.style.borderColor = `${wallColor.top} ${wallColor.right} ${wallColor.bottom} red`
     }
 
 
@@ -167,9 +167,9 @@ export class Cell {
         return this.#rightWall
     }
 
-    getBotWall()
+    getBottomWall()
     {
-        return this.#botWall
+        return this.#bottomWall
     }
 
     getLeftWall()

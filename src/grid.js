@@ -91,7 +91,7 @@ export class Grid {
         return (cell.getColumn() == this.#columns - 1)
     }
 
-    isBotEdge(cell)
+    isBottomEdge(cell)
     {
         return (cell.getRow() == this.#rows - 1)
     }
@@ -114,7 +114,7 @@ export class Grid {
         return this.#cells[cell.getRow()][cell.getColumn() + 1]
     }
 
-    getBotCell(cell)
+    getBottomCell(cell)
     {
         return this.#cells[cell.getRow() + 1][cell.getColumn()]
     }

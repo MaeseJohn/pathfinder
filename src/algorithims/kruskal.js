@@ -20,7 +20,7 @@ export class Kruskal {
             {
                 next = grid.getTopCell(current.cell)
                 current.cell.drawTopWallRed()
-                next.drawBotWallRed()
+                next.drawBottomWallRed()
             }
             else if(current.direction == 'Right')
             {
@@ -39,7 +39,7 @@ export class Kruskal {
                 if(current.direction == 'Top')
                 {
                     current.cell.removeTopWall()
-                    next.removeBotWall()
+                    next.removeBottomWall()
                 }
                 else
                 {

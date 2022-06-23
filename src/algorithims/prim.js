@@ -16,10 +16,10 @@ export class Prim {
         {
             array.push(grid.getRightCell(cell))
         }
-        //Bot
-        if(!grid.isBotEdge(cell))
+        //Bottom
+        if(!grid.isBottomEdge(cell))
         {
-            array.push(grid.getBotCell(cell))
+            array.push(grid.getBottomCell(cell))
         }
         //Left
         if(!grid.isLeftEdge(cell))
@@ -35,12 +35,12 @@ export class Prim {
         if(cell1.getRow() > cell2.getRow())
         {
             cell1.removeTopWall()
-            cell2.removeBotWall()
+            cell2.removeBottomWall()
             return
         }
         if(cell1.getRow() < cell2.getRow())
         {
-            cell1.removeBotWall() 
+            cell1.removeBottomWall() 
             cell2.removeTopWall()
             return
         }
