@@ -69,6 +69,16 @@ export class Grid {
         return sideSizes;
     }
 
+    clearGrid()
+    { 
+        for(let i = 0; i < this.#rows; i++)
+        {
+            for(let j = 0; j < this.#columns; j++)
+            {
+                this.#cells[i][j].drawWhite()
+            }
+        }
+    }
     removeGrid()
     {
         for(let x = 0; x < this.#rows; x++){

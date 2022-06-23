@@ -30,3 +30,11 @@ PATHFINDER_RUN_BUTTON.onclick = function()
 
     Utils.solveMaze(grid)
 }
+
+const CLEAR_BUTTON = document.getElementById('clear')
+
+CLEAR_BUTTON.onclick = function()
+{
+    grid.clearGrid()
+    grid.setDefaultBeginGoalCells()
+}
