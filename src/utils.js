@@ -2,11 +2,12 @@ import { Depthfirst } from "./algorithims/depthfirst"
 import { Prim } from "./algorithims/prim"
 import { Kruskal } from "./algorithims/kruskal"
 import { Breadthfirst } from "./algorithims/breadthfirst" 
+import { AStar } from "./algorithims/astar"
 
 
 export class Utils {
 
-    static #selectAlgorithim()
+    static #selectRandomizerAlgorithim()
     {
         let selectValue = document.getElementById('randomizerAlgorithim').value
         let algorithim
@@ -27,15 +28,36 @@ export class Utils {
         return algorithim
     }
 
+    static #selectSolveAlgorithim()
+    {
+        let selectValue = document.getElementById('pathfinders').value
+        let algorithim
+        switch(selectValue)
+        {
+            case '0':
+                algorithim = new Depthfirst()
+            break
+
+            case '1':
+                algorithim = new Breadthfirst()
+            break
+
+            case '2':
+                algorithim = new AStar()
+            break
+        }
+        return algorithim
+    }
+
     static generateMaze(grid)
     {
-        let algorithim = Utils.#selectAlgorithim()
+        let algorithim = Utils.#selectRandomizerAlgorithim()
         algorithim.generateMaze(grid)
     }
 
     static solveMaze(grid)
     {
-        let algorithim = new Breadthfirst()
+        let algorithim = Utils.#selectSolveAlgorithim()
         algorithim.solveMaze(grid)
     }
 

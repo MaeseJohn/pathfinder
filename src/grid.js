@@ -188,6 +188,29 @@ export class Grid {
         return sets
     }
 
+    getScores()
+    {
+        let scores = []
+        for(let i = 0; i < this.#rows; i++)
+        {
+            let row = []
+            for(let j = 0; j < this.#columns; j++)
+            {
+                //f(n) = g(n) + h(n)
+                //f = the cost of node
+                //g = distance betwen node and start
+                //h = manhattan distance betwen node and goal
+                let score = {
+                    f: Infinity,
+                    g: Infinity
+                }
+                row.push(score)
+            }
+            scores.push(row)
+        }
+        return scores
+    }
+
     //SETTERS
     #setBeginCell(cell)
     {
