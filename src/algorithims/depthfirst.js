@@ -2,9 +2,6 @@ import { Utils } from "../Utils"
 
 export class Depthfirst {
 
-
-    #stop = false
-
     #drawMovement(direction, current, next, stack)
     { 
         switch(direction)
@@ -129,6 +126,8 @@ export class Depthfirst {
 
 
     //SOLVE MAZE
+    #stop = false
+    
     stop()
     {
         this.#stop = true

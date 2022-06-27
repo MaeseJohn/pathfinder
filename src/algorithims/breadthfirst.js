@@ -3,62 +3,67 @@ import { Queue } from '@datastructures-js/queue';
 
 export class Breadthfirst {
 
+    #explored
+    #queue
+    #map
+    #beginCell
+    #goalCell
     #stop = false
 
     stop()
     {
         this.#stop = true
     }
-    
-    #pushAsPotentialNextCell(queue, explored, current, next, map)
+
+    #pushAsPotentialNextCell(current, next)
     {
         if(!explored.includes(next))
         {
-            queue.enqueue(next)
-            explored.push(next)
+            this.#queue.enqueue(next)
+            this.#explored.push(next)
             next.drawYellow()
-            map.set(`${next.getRow()}-${next.getColumn()}`, current)
+            this.#map.set(`${next.getRow()}-${next.getColumn()}`, current)
         }
     }
 
-    #processAdjacents(grid, queue, explored, current, map)
+    #processAdjacents(grid, current)
     {
         let next 
 
         if(!current.getTopWall())
         {
             next = grid.getTopCell(current)
-            this.#pushAsPotentialNextCell(queue, explored, current, next, map)
+            this.#pushAsPotentialNextCell(current, next)
         }
 
         if(!current.getRightWall())
         { 
             next = grid.getRightCell(current)
-            this.#pushAsPotentialNextCell(queue, explored, current, next, map)
+            this.#pushAsPotentialNextCell(current, next)
         }
 
         if(!current.getBottomWall())   
         {
             next = grid.getBottomCell(current)
-            this.#pushAsPotentialNextCell(queue, explored, current, next, map)
+            this.#pushAsPotentialNextCell(current, next)
         }
 
         if(!current.getLeftWall())  
         { 
             next = grid.getLeftCell(current)
-            this.#pushAsPotentialNextCell(queue, explored, current, next, map) 
+            this.#pushAsPotentialNextCell(current, next) 
         }
     }
 
-    async #drawPath(beginCell, goalCell, map, speed)
+    async #drawPath(speed)
     {
-        let pathColor = map.get(`${goalCell.getRow()}-${goalCell.getColumn()}`)
+        let pathColor = this.#map.get(`${this.#goalCell.getRow()}-${this.#goalCell.getColumn()}`)
         
-        while(!pathColor.equals(beginCell))
+        while(!pathColor.equals(this.#beginCell))
         {
             if(this.#stop){ return }
             pathColor.drawViolet()
-            pathColor = map.get(`${pathColor.getRow()}-${pathColor.getColumn()}`)
+            pathColor = this.#map.get(`${pathColor.getRow()}-${pathColor.getColumn()}`)
 
             await Utils.delay(speed)
         }
@@ -66,37 +71,37 @@ export class Breadthfirst {
 
     async solveMaze(grid)
     {
-        let explored = []
-        let queue = new Queue()
-        let map = new Map()
+        this.#explored = []
+        this.#queue = new Queue()
+        this.#map = new Map()
 
-        const goalCell = grid.getGoalCell()
-        const beginCell = grid.getBeginCell()
-        explored.push(beginCell)
-        queue.enqueue(beginCell)
+        this.#goalCell = grid.getGoalCell()
+        this.#beginCell = grid.getBeginCell()
+        this.#explored.push(this.#beginCell)
+        this.#queue.enqueue(this.#beginCell)
 
         const speed = document.getElementById('solvespeed').value
 
-        while(!queue.isEmpty())
+        while(!this.#queue.isEmpty())
         {
             if(this.#stop){ return } 
-            let current = queue.dequeue()
+            let current = this.#queue.dequeue()
 
-            if(!current.equals(beginCell) && !current.equals(goalCell))
+            if(!current.equals(this.#beginCell) && !current.equals(this.#goalCell))
             {
                 current.drawOrange()
             }
 
-            if(current.equals(goalCell))
+            if(current.equals(this.#goalCell))
             {
                 current.drawRed()
                 break 
             }
 
-            this.#processAdjacents(grid, queue, explored, current, map)
+            this.#processAdjacents(grid, current)
             await Utils.delay(speed)
         }
 
-        this.#drawPath(beginCell, goalCell, map, speed)
+        this.#drawPath(speed)
     }
 }
