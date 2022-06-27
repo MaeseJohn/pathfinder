@@ -13,7 +13,7 @@ export class AStar {
     {
         this.#stop = true
     }
-    
+
     #calculateHeuristicCost(cell)
     {
         //Manhattan distance
@@ -100,7 +100,6 @@ export class AStar {
 
         //f const, heuristic cost, cell
         priorityQueue.enqueue([startF, startF, this.#beginCell])
-        console.log(priorityQueue.size())
 
         while (priorityQueue.size() > 0) 
         {
