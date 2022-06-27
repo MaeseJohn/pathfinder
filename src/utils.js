@@ -28,7 +28,7 @@ export class Utils {
         return algorithim
     }
 
-    static #selectSolveAlgorithim()
+    static selectSolveAlgorithim()
     {
         let selectValue = document.getElementById('pathfinders').value
         let algorithim
@@ -53,12 +53,6 @@ export class Utils {
     {
         let algorithim = Utils.#selectRandomizerAlgorithim()
         algorithim.generateMaze(grid)
-    }
-
-    static solveMaze(grid)
-    {
-        let algorithim = Utils.#selectSolveAlgorithim()
-        algorithim.solveMaze(grid)
     }
 
     static delay(selectvalue)

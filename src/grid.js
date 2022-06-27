@@ -78,7 +78,10 @@ export class Grid {
                 this.#cells[i][j].drawWhite()
             }
         }
+        this.#beginCell.drawGreen()
+        this.#goalCell.drawRed()
     }
+
     removeGrid()
     {
         for(let x = 0; x < this.#rows; x++){

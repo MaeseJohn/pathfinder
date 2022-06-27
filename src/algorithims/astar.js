@@ -7,7 +7,13 @@ export class AStar {
     #beginCell
     #scores
     #path
+    #stop = false
 
+    stop()
+    {
+        this.#stop = true
+    }
+    
     #calculateHeuristicCost(cell)
     {
         //Manhattan distance
@@ -65,11 +71,11 @@ export class AStar {
 
     async #drawPath(speed)
     {
-        console.log("drawpayh")
         let pathColor = this.#path.get(`${this.#goalCell.getRow()}-${this.#goalCell.getColumn()}`)
         
         while(!pathColor.equals(this.#beginCell))
         {
+            if(this.#stop){ return }
             pathColor.drawViolet()
             pathColor = this.#path.get(`${pathColor.getRow()}-${pathColor.getColumn()}`)
 
@@ -98,9 +104,9 @@ export class AStar {
 
         while (priorityQueue.size() > 0) 
         {
-            console.log('hola')
+            if(this.#stop){ return }
+
             let current = priorityQueue.dequeue()[2]
-            console.log(current)
 
             if(!current.equals(this.#beginCell) && !current.equals(this.#goalCell))
             {

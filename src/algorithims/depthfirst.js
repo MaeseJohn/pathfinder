@@ -3,6 +3,8 @@ import { Utils } from "../Utils"
 export class Depthfirst {
 
 
+    #stop = false
+
     #drawMovement(direction, current, next, stack)
     { 
         switch(direction)
@@ -127,6 +129,11 @@ export class Depthfirst {
 
 
     //SOLVE MAZE
+    stop()
+    {
+        this.#stop = true
+    }
+
     #pushAsPotentialNextCell(stack, explored, current, next, map)
     {
         if(!explored.includes(next))
@@ -172,6 +179,7 @@ export class Depthfirst {
         
         while(!pathColor.equals(beginCell))
         {
+            if(this.#stop){ return }
             pathColor.drawViolet()
             pathColor = map.get(`${pathColor.getRow()}-${pathColor.getColumn()}`)
 
@@ -196,6 +204,7 @@ export class Depthfirst {
 
         while(stack.length > 0)
         {
+            if(this.#stop){ return }
             let current = stack.pop()
 
             if(!current.equals(beginCell) && !current.equals(goalCell))

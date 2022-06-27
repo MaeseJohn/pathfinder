@@ -3,6 +3,13 @@ import { Queue } from '@datastructures-js/queue';
 
 export class Breadthfirst {
 
+    #stop = false
+
+    stop()
+    {
+        this.#stop = true
+    }
+    
     #pushAsPotentialNextCell(queue, explored, current, next, map)
     {
         if(!explored.includes(next))
@@ -49,6 +56,7 @@ export class Breadthfirst {
         
         while(!pathColor.equals(beginCell))
         {
+            if(this.#stop){ return }
             pathColor.drawViolet()
             pathColor = map.get(`${pathColor.getRow()}-${pathColor.getColumn()}`)
 
@@ -71,6 +79,7 @@ export class Breadthfirst {
 
         while(!queue.isEmpty())
         {
+            if(this.#stop){ return } 
             let current = queue.dequeue()
 
             if(!current.equals(beginCell) && !current.equals(goalCell))

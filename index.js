@@ -21,6 +21,8 @@ MAZE_RANDOMIZER_BUTTON.onclick = function()
 
 const PATHFINDER_RUN_BUTTON = document.getElementById('pathrun')
 
+let algorithim
+
 PATHFINDER_RUN_BUTTON.onclick = function()
 {
     if(grid == undefined)
@@ -28,13 +30,23 @@ PATHFINDER_RUN_BUTTON.onclick = function()
         return
     }
 
-    Utils.solveMaze(grid)
+    if(algorithim != undefined)
+    {
+        algorithim.stop()
+        grid.clearGrid()
+    }
+
+    algorithim = Utils.selectSolveAlgorithim()
+    algorithim.solveMaze(grid)
 }
 
 const CLEAR_BUTTON = document.getElementById('clear')
 
 CLEAR_BUTTON.onclick = function()
 {
+    if(algorithim != undefined)
+    {
+        algorithim.stop()
+    }
     grid.clearGrid()
-    grid.setDefaultBeginGoalCells()
 }
