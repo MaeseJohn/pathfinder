@@ -54,8 +54,8 @@ export class Grid {
             height: window.innerHeight - navbarHeight
         }
 
-        let width_columns = sideSizes.width/this.#columns
-        let height_rows   = sideSizes.height/this.#rows
+        let width_columns = sideSizes.width / this.#columns
+        let height_rows   = sideSizes.height / this.#rows
 
         if(width_columns < height_rows)
         {
@@ -67,6 +67,70 @@ export class Grid {
         }
 
         return sideSizes;
+    }
+
+    #breakWallsSwitch(direction, randomCell)
+    {
+        switch(direction)
+        {
+            //TOP
+            case 0:
+                if(!this.isTopEdge(randomCell) && randomCell.getTopWall())
+                {
+                    randomCell.removeTopWall()
+                    this.getTopCell(randomCell).removeBottomWall()
+                    return true
+                }
+            break
+
+            //RIGHT
+            case 1:
+                if(!this.isRightEdge(randomCell) && randomCell.getRightWall())
+                {
+                    randomCell.removeRightWall()
+                    this.getRightCell(randomCell).removeLeftWall()
+                    return true
+                }
+            break
+
+            //BOTTOM
+            case 2:
+                if(!this.isBottomEdge(randomCell) && randomCell.getBottomWall())
+                {
+                    randomCell.removeBottomWall()
+                    this.getBottomCell(randomCell).removeTopWall()
+                    return true
+                }
+            break
+            
+            //LEFT
+            case 3:
+                if(!this.isLeftEdge(randomCell) && randomCell.getLeftWall())
+                {
+                    randomCell.removeLeftWall()
+                    this.getLeftCell(randomCell).removeRightWall()
+                    return true
+                }
+            break
+        }
+        return false
+    }
+
+    breakWalls(breakWalls)
+    {
+        let removeWalls = ((breakWalls / 100 ) * (this.#rows * this.#columns))
+        while(removeWalls > 0)
+        {
+            let randomRow    = Math.round(Math.random() * (this.#rows - 1))
+            let randomColumn = Math.round(Math.random() * (this.#columns - 1))
+            let randomCell   = this.#cells[randomRow][randomColumn]
+            let direction   = Math.round(Math.random() * 3)
+
+            if(this.#breakWallsSwitch(direction, randomCell))
+            {
+                removeWalls--
+            }
+        }
     }
 
     clearGrid()

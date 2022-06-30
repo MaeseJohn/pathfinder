@@ -52,7 +52,7 @@ export class Depthfirst {
             while(!valid && checks < 20)
             {
                 checks++
-                let direction = Math.round(Math.random() * 4)
+                let direction = Math.round(Math.random() * 3)
                 switch(direction)
                 {
                     // UP
@@ -120,6 +120,7 @@ export class Depthfirst {
 
             await Utils.delay(speed)
         }
+        grid.breakWalls(Utils.selectBreakWals())
         grid.setDefaultBeginGoalCells()
     }
 

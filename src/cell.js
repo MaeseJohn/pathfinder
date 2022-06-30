@@ -16,10 +16,10 @@ export class Cell {
 
         this.visited = false
 
-        this.#topWall   = true
-        this.#rightWall = true
-        this.#bottomWall   = true
-        this.#leftWall  = true   
+        this.#topWall    = true
+        this.#rightWall  = true
+        this.#bottomWall = true
+        this.#leftWall   = true   
     }
 
     //WallRemovers

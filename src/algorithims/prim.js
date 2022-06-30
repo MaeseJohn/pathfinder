@@ -119,6 +119,7 @@ export class Prim {
             
             await Utils.delay(speed)
         }
+        grid.breakWalls(Utils.selectBreakWals())
         grid.setDefaultBeginGoalCells()
     }
 }

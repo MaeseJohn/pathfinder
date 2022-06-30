@@ -49,6 +49,32 @@ export class Utils {
         return algorithim
     }
 
+    static selectBreakWals()
+    {
+        let selectValue = document.getElementById('breakwalls').value
+        let number
+
+        switch(selectValue)
+        {
+            case '0':
+                number = 0
+            break
+
+            case '1':
+                number = 10
+            break
+
+            case '2':
+                number = 30
+            break
+
+            case '3':
+                number = 60
+            break
+        }
+        return number
+    }
+
     static generateMaze(grid)
     {
         let algorithim = Utils.#selectRandomizerAlgorithim()

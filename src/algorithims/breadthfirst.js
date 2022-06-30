@@ -17,7 +17,7 @@ export class Breadthfirst {
 
     #pushAsPotentialNextCell(current, next)
     {
-        if(!explored.includes(next))
+        if(!this.#explored.includes(next))
         {
             this.#queue.enqueue(next)
             this.#explored.push(next)

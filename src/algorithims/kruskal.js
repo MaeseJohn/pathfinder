@@ -59,6 +59,7 @@ export class Kruskal {
             
             edges.splice(random,1)
         }
+        grid.breakWalls(Utils.selectBreakWals())
         grid.setDefaultBeginGoalCells()
     }
 
