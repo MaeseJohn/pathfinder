@@ -65,11 +65,11 @@ export class Utils {
             break
 
             case '2':
-                number = 30
+                number = 20
             break
 
             case '3':
-                number = 60
+                number = 40
             break
         }
         return number

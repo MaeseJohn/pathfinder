@@ -12,7 +12,11 @@ MAZE_RANDOMIZER_BUTTON.onclick = function()
     }
 
     let gridHeight = document.getElementById('heigth').value
+    gridHeight = gridHeight > 50 ? 50 : gridHeight
+
     let gridWidth  = document.getElementById('width').value
+    gridWidth = gridWidth > 100 ? 100 : gridWidth
+    
     grid = new Grid(gridHeight, gridWidth)
     grid.makeGrid()
 
