@@ -13,7 +13,11 @@ Vanilla JavaScript, Object-Oriented Programming, HTML, CSS.
 ## How it works?
 In the navbar we can see several options that are separated into 2 blocks. The first one is in charge of shaping the maze and the second one is in charge of solving the maze.
 
+![NavBar](readmeresources/Navbar.png?raw=true)
+
 ### First block
+
+![NavBar](readmeresources/firstBlock.png?raw=true)
 
 - **Size:** the first text box determines the height and the second one the width of the board. It will not be possible to exceed a height of 50 and a width of 100 for aesthetic reasons, beyond these measures the cells begin to be little visible.
 
@@ -26,6 +30,8 @@ In the navbar we can see several options that are separated into 2 blocks. The f
 Clicking the first Run button will generate a totally random maze determined by the previous values.
 
 ### Second block
+
+![NavBar](readmeresources/secondBlock.png?raw=true)
 
 - **Pathfinder:** in this dropdown you select the algorithm that will be used to solve the maze.
 
