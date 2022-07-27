@@ -31,7 +31,8 @@ Clicking the first Run button will generate a totally random maze determined by 
 
 ![options](readmeresources/firstblockoptions.jpg?raw=true)
 
-- **Pictures 1 and 2:** in these screemshots we can see how size works.
+- **Pictures 1 and 2:** in these screemshots we can see how size works. It should be noted that in the second screenshot the width and height exceed the limits and a maze is generated with the maximum possible values.
+
 - **Pictures 3 and 4:** in these screemshots we can see how BreakWalls works.
 
 ### Second block
