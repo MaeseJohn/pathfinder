@@ -47,3 +47,11 @@ Clicking the Run button will start the animation that shows how the algorithm wo
 
 When generating the maze, 2 boxes of different colors will appear the green one represents the beginning of the maze and the red one the end. You can change the position of these boxes by dragging them through the maze. (If you move the squares while the algorithms are running, they will continue their course with
 the values they had when they started)
+
+![options2](readmeresources/secondblockoptions.jpg?raw=true)
+
+- **Pictures 1, 2 and 3:** in these screenshots we can see how the different algorithms work in the same maze.
+
+- **Picture 4:** in these screenshots we can see that you can move the start and the end of the maze.
+
+
