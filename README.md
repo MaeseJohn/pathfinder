@@ -4,8 +4,10 @@ The main goal of this project is to develop an application to visualize the oper
 ### Technologies summary
 Vanilla JavaScript, Object-Oriented Programming, HTML, CSS.
 
-#### Algorithms
+### Algorithms
+
 **Maze generators:** [Randomized DFS](https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_depth-first_search),  [Randomized Kruskal's](https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_Kruskal's_algorithm),  [Randomized Prim's](https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_Prim's_algorithm).
+
 **Maze solvers:** [DFS](https://en.wikipedia.org/wiki/Depth-first_search "DFS"), [BFS](https://en.wikipedia.org/wiki/Breadth-first_search "BFS"), [A*](https://en.wikipedia.org/wiki/A*_search_algorithm "A*")
 
 ------------
