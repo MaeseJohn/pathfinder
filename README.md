@@ -70,8 +70,6 @@ the values they had when they started.
 
 **Picture 4:** we can see that you can move the start and the end of the maze.
 
-<br/>
-
 ### Solve maze caption
 
 **Yellow:** yellow cells represent cells that are inserted into a collection (e.g. a stack or a queue, denpending on the algorithm).
