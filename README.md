@@ -17,7 +17,7 @@ In the navbar we can see several options that are separated into 2 blocks. The f
 
 ### First block
 
-![NavBar](readmeresources/firstBlock.png?raw=true)
+![NavBar1](readmeresources/firstBlock.png?raw=true)
 
 - **Size:** the first text box determines the height and the second one the width of the board. It will not be possible to exceed a height of 50 and a width of 100 for aesthetic reasons, beyond these measures the cells begin to be little visible.
 
@@ -29,11 +29,14 @@ In the navbar we can see several options that are separated into 2 blocks. The f
 
 Clicking the first Run button will generate a totally random maze determined by the previous values.
 
-![NavBar](readmeresources/firstblockoptions.png?raw=true)
+![options](readmeresources/firstblockoptions.jpg?raw=true)
+
+- **Pictures 1 and 2:** in these screemshots we can see how size works.
+- **Pictures 3 and 4:** in these screemshots we can see how BreakWalls works.
 
 ### Second block
 
-![NavBar](readmeresources/secondBlock.png?raw=true)
+![NavBar2](readmeresources/secondBlock.png?raw=true)
 
 - **Pathfinder:** in this dropdown you select the algorithm that will be used to solve the maze.
 
