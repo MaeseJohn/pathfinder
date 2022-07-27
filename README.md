@@ -75,7 +75,9 @@ the values they had when they started.
 ### Solve maze caption
 
 **Yellow:** yellow cells represent cells that are inserted into a collection (e.g. a stack or a queue, denpending on the algorithm).
+
 **Orange:** orange cells represent cells that have already been processed.
+
 **Purple:** purple cells represent one of the shortest possible paths, except DFS which returns the first path it finds. 
 
 
