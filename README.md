@@ -15,7 +15,7 @@ In the navbar we can see several options that are separated into 2 blocks. The f
 
 ![NavBar](readmeresources/Navbar.png?raw=true)
 
-### First block
+### Generate maze
 
 ![NavBar1](readmeresources/firstBlock.png?raw=true)
 
@@ -35,7 +35,7 @@ Clicking the first Run button will generate a totally random maze determined by 
 
 - **Pictures 3 and 4:** in these screemshots we can see how BreakWalls works.
 
-### Second block
+### Solve maze
 
 ![NavBar2](readmeresources/secondBlock.png?raw=true)
 
@@ -53,5 +53,11 @@ the values they had when they started)
 - **Pictures 1, 2 and 3:** in these screenshots we can see how the different algorithms work in the same maze.
 
 - **Picture 4:** in these screenshots we can see that you can move the start and the end of the maze.
+
+#### Caption
+
+- **Yellow:** yellow cells represent cells that are inserted into a collection (e.g. a stack or a queue, denpending on the algorithm).
+- **Orange:** orange cells represent cells that have already been processed.
+- **Purple:** purple cells represent one of the shortest possible paths, except DFS which returns the first path it finds. 
 
 
