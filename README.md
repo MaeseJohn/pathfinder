@@ -29,6 +29,8 @@ In the navbar we can see several options that are separated into 2 blocks. The f
 
 Clicking the first Run button will generate a totally random maze determined by the previous values.
 
+![NavBar](readmeresources/firstblockoptions.png?raw=true)
+
 ### Second block
 
 ![NavBar](readmeresources/secondBlock.png?raw=true)
