@@ -35,6 +35,11 @@ Clicking the first Run button will generate a totally random maze determined by 
 
 - **Pictures 3 and 4:** in these screemshots we can see how BreakWalls works.
 
+
+#### Caption
+
+![mazegenerator](readmeresources/mazegenerators.png?raw=true)
+
 ### Solve maze
 
 ![NavBar2](readmeresources/secondBlock.png?raw=true)
