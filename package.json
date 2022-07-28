@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "parcel build index.html"
     "dev": "npx parcel index.html -p 8080"
   },
   "author": "Jonathan Santos",
