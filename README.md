@@ -1,4 +1,5 @@
 # Pathfinder Visualizer
+
 The main goal of this project is to develop an application to visualize the operation of graph traversal algorithms in JavaScript, in order to learn and practice how they work.
 
 [Give it a try.](https://maze-pathfinder-visualizer.herokuapp.com/)
