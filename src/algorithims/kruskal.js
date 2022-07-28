@@ -1,4 +1,4 @@
-import { Utils } from "../Utils"
+import { Utils } from "../utils"
 import { find, union } from '@manubb/union-find'
 
 export class Kruskal {

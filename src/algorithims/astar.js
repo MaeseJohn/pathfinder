@@ -1,4 +1,4 @@
-import { Utils } from "../Utils";
+import { Utils } from "../utils";
 import { PriorityQueue } from "@datastructures-js/priority-queue";
 
 export class AStar {

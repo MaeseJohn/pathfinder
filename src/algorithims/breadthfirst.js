@@ -1,4 +1,4 @@
-import { Utils } from "../Utils"
+import { Utils } from "../utils"
 import { Queue } from '@datastructures-js/queue';
 
 export class Breadthfirst {

@@ -1,5 +1,5 @@
 import { Grid } from './src/grid'
-import { Utils } from './src/Utils'
+import { Utils } from './src/utils'
 
 let grid
 const MAZE_RANDOMIZER_BUTTON = document.getElementById('mazerun')
