@@ -34,7 +34,7 @@ In the navbar we can see several options that are separated into 2 blocks. The f
 
 Clicking on the first `Run` button will generate a totally random maze determined by the previous values.
  
-![options](readmeresources/firstBlockoptions.png?raw=true) 
+![options](readmeresources/firstBlockOptions.png?raw=true) 
 
 **Pictures 1 and 2:** we can see how size works. It should be noted that in the second screenshot the width and height exceed the limits and a maze is generated with the maximum possible values. 
 
@@ -57,7 +57,7 @@ Clicking on the first `Run` button will generate a totally random maze determine
 
 ## Solve maze
 
-![NavBar2](readmeresources/secondBlock.png?raw=true)
+![NavBar2](readmeresources/navbarSecondBlock.png?raw=true)
 
 **Pathfinder:** in this dropdown you select the algorithm that will be used to solve the maze.
 
@@ -68,7 +68,7 @@ Clicking on the `Run` button will start the animation that shows how the algorit
 After generating the maze, 2 boxes of different colors will appear the green one represents the beginning of the maze and the red one the end. You can change the position of these boxes by dragging them over the maze. If you move the squares while an algorithm is running, they will continue their course with
 the values they had when they started.
 
-![options2](readmeresources/secondblockoptions.jpg?raw=true)
+![options2](readmeresources/pathfinders.png?raw=true)
 (1.DFS, 2.BFS, 3.A*)
 
 **Pictures 1, 2 and 3:** we can see how the different algorithms work in the same maze.
