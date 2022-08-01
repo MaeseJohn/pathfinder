@@ -30,7 +30,7 @@ export class Depthfirst {
         next.visited = true
         stack.push(next)
         current.drawBlue()
-        next.drawViolet()      
+        next.drawLightBlue()      
     }
 
     async generateMaze(grid)
@@ -114,7 +114,7 @@ export class Depthfirst {
                 
                 if(stack.length > 0)
                 {
-                    stack[stack.length - 1].drawViolet()
+                    stack[stack.length - 1].drawLightBlue()
                 }
             }
 
@@ -140,7 +140,7 @@ export class Depthfirst {
         {
             stack.push(next)
             explored.push(next)
-            next.drawYellow()
+            next.drawLightBlue()
             map.set(`${next.getRow()}-${next.getColumn()}`, current)
         }
     }
@@ -180,7 +180,7 @@ export class Depthfirst {
         while(!pathColor.equals(beginCell))
         {
             if(this.#stop){ return }
-            pathColor.drawViolet()
+            pathColor.drawYellow()
             pathColor = map.get(`${pathColor.getRow()}-${pathColor.getColumn()}`)
 
             await Utils.delay(speed)
@@ -209,7 +209,7 @@ export class Depthfirst {
 
             if(!current.equals(beginCell) && !current.equals(goalCell))
             {
-                current.drawOrange()
+                current.drawBlue()
             }
 
             if(current.equals(goalCell))

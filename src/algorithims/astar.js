@@ -35,7 +35,7 @@ export class AStar {
             this.#getCellScore(next).g = tmpG
             this.#getCellScore(next).f = tmpF
             priorityQueue.enqueue([tmpF, this.#calculateHeuristicCost(next), next])
-            next.drawYellow()
+            next.drawLightBlue()
             this.#path.set(`${next.getRow()}-${next.getColumn()}`, current)
         }
     }
@@ -76,7 +76,7 @@ export class AStar {
         while(!pathColor.equals(this.#beginCell))
         {
             if(this.#stop){ return }
-            pathColor.drawViolet()
+            pathColor.drawYellow()
             pathColor = this.#path.get(`${pathColor.getRow()}-${pathColor.getColumn()}`)
 
             await Utils.delay(speed)
@@ -109,7 +109,7 @@ export class AStar {
 
             if(!current.equals(this.#beginCell) && !current.equals(this.#goalCell))
             {
-                current.drawOrange()
+                current.drawBlue()
             }
 
             if(current.equals(this.#goalCell))

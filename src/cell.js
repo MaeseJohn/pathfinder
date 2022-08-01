@@ -53,33 +53,33 @@ export class Cell {
 
         //Putting dashed for undraw walls cuz hidden or none colapse the cells
         //and change his size
-        let top   = this.#topWall   ? 'solid' : 'dashed'
-        let right = this.#rightWall ? 'solid' : 'dashed'
-        let bottom   = this.#bottomWall   ? 'solid' : 'dashed'
-        let left  = this.#leftWall  ? 'solid' : 'dashed'
+        let top    = this.#topWall    ? 'solid' : 'dashed'
+        let right  = this.#rightWall  ? 'solid' : 'dashed'
+        let bottom = this.#bottomWall ? 'solid' : 'dashed'
+        let left   = this.#leftWall   ? 'solid' : 'dashed'
 
         this.#cell.style.borderStyle = `${top} ${right} ${bottom} ${left}`
     }
 
     //ColorManage
-    drawViolet()
+    drawYellow()
     {
-        this.#cell.style.backgroundColor = '#af7ac5'
+        this.#cell.style.backgroundColor = '#FCE12B'
     }
 
     drawGreen()
     {
-        this.#cell.style.backgroundColor = '#52be80'
+        this.#cell.style.backgroundColor = '#00DA1E'
     }
 
     drawRed()
     {
-        this.#cell.style.backgroundColor = '#ff1800'
+        this.#cell.style.backgroundColor = '#FF1612'
     }
 
     drawBlue()
     {
-        this.#cell.style.backgroundColor = '#5dade2'
+        this.#cell.style.backgroundColor = '#006AF7'
     }
 
     drawWhite()
@@ -87,14 +87,9 @@ export class Cell {
         this.#cell.style.backgroundColor = 'white'
     }
 
-    drawOrange()
+    drawLightBlue()
     {
-        this.#cell.style.backgroundColor = 'orange'
-    }
-
-    drawYellow()
-    {
-        this.#cell.style.backgroundColor = 'yellow'
+        this.#cell.style.backgroundColor = '#00CFFA'
     }
 
    //Wall color manage

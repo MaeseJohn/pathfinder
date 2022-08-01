@@ -21,7 +21,7 @@ export class Breadthfirst {
         {
             this.#queue.enqueue(next)
             this.#explored.push(next)
-            next.drawYellow()
+            next.drawLightBlue()
             this.#map.set(`${next.getRow()}-${next.getColumn()}`, current)
         }
     }
@@ -62,7 +62,7 @@ export class Breadthfirst {
         while(!pathColor.equals(this.#beginCell))
         {
             if(this.#stop){ return }
-            pathColor.drawViolet()
+            pathColor.drawYellow()
             pathColor = this.#map.get(`${pathColor.getRow()}-${pathColor.getColumn()}`)
 
             await Utils.delay(speed)
@@ -89,7 +89,7 @@ export class Breadthfirst {
 
             if(!current.equals(this.#beginCell) && !current.equals(this.#goalCell))
             {
-                current.drawOrange()
+                current.drawBlue()
             }
 
             if(current.equals(this.#goalCell))

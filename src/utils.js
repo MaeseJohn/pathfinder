@@ -7,6 +7,7 @@ import { AStar } from "./algorithims/astar"
 
 export class Utils {
 
+    creatingmaze;
     static #selectRandomizerAlgorithim()
     {
         let selectValue = document.getElementById('randomizerAlgorithim').value
@@ -75,10 +76,12 @@ export class Utils {
         return number
     }
 
-    static generateMaze(grid)
+    static async generateMaze(grid)
     {
+        this.creatingmaze = true
         let algorithim = Utils.#selectRandomizerAlgorithim()
-        algorithim.generateMaze(grid)
+        await algorithim.generateMaze(grid)
+        this.creatingmaze = false
     }
 
     static delay(selectvalue)
