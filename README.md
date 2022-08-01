@@ -24,7 +24,7 @@ In the navbar we can see several options that are separated into 2 blocks. The f
 
 ![NavBar1](readmeresources/navbarFirstBlock.png?raw=true)
 
-**Size:** the first text box determines the height and the second one the width of the board. It will not be possible to exceed a height of 50 and a width of 100 for aesthetic reasons, beyond these measures the cells begin to be little visible.
+**Size:** the first text box determines the width and the second one the height of the board. It will not be possible to exceed a height of 50 and a width of 100 for aesthetic reasons, beyond these measures the cells begin to be little visible.
 
 **Randomizer:** is a dropdown that allows you to choose which algorithm will be used to generate the maze.
 
