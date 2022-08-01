@@ -22,7 +22,7 @@ In the navbar we can see several options that are separated into 2 blocks. The f
 
 ## Generate maze
 
-![NavBar1](readmeresources/firstBlock.png?raw=true)
+![NavBar1](readmeresources/navbarFirstBlock.png?raw=true)
 
 **Size:** the first text box determines the height and the second one the width of the board. It will not be possible to exceed a height of 50 and a width of 100 for aesthetic reasons, beyond these measures the cells begin to be little visible.
 
@@ -34,7 +34,7 @@ In the navbar we can see several options that are separated into 2 blocks. The f
 
 Clicking on the first `Run` button will generate a totally random maze determined by the previous values.
  
-![options](readmeresources/firstblockoptions.jpg?raw=true) 
+![options](readmeresources/firstBlockoptions.png?raw=true) 
 
 **Pictures 1 and 2:** we can see how size works. It should be noted that in the second screenshot the width and height exceed the limits and a maze is generated with the maximum possible values. 
 
