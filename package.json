@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx parcel index.html",
-    "dev": "npx parcel index.html -p 8080"
+    "dev": "npx parcel index.html -p 8080",
     "deploy": "npx parcel index.html -p $PORT"
   },
   "author": "Jonathan Santos",
